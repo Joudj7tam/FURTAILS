@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="icon" type="image/png" href="../../FrontEnd/Media/title.png">
+  <link rel="stylesheet" href="/FURTAILS/FrontEnd/Css/HomePage.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header-container">
+    <header>
+      <div class="header-content">
+        <h1 class="logo-heading">
+          Find Your Perfect Treatment for Your Pet with
+          <span class="logo-word">
+            <span class="f">F</span>
+            <span class="u">U</span>
+            <span class="r">R</span>
+            <span class="t">T</span>
+            <span class="a">A</span>
+            <span class="i">I</span>
+            <span class="l">L</span>
+            <span class="s">S</span>
+            <span class="paw">🐾</span>
+          </span>
+        </h1>
+        <a href="#services" class="button-header">Discover Our Services</a>
+      </div>
+      <div class="header-image">
+        <img src=" ../../FrontEnd/Media/pet.png" alt="Pets" />
+        <div class="paw-background">
+          <img src="../../FrontEnd/Media/paws.png" alt="Paw Prints" />
+        </div>
+      </div>
+    </header>
+    <div class="wave">
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff"
+          d="M0,224L48,213.3C96,203,192,181,288,176C384,171,480,181,576,176C672,171,768,149,864,154.7C960,160,1056,192,1152,213.3C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Our Services section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <a href=" ../../FrontEnd/Media/Grooming.html" class="card-link">
+          <h3>Grooming</h3>
+          <img src=" ../../FrontEnd/Media/grooming.jpeg" alt="Grooming Service" />
+        </a>
+      </div>
+      <div class="service-card">
+        <h3>Pet Recipes</h3>
+        <img src=" ../../FrontEnd/Media/fooding.jpeg" alt="Pet Recipes" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pet Profile Section -->
+  <section id="pet-profile">
+    <h2>Discover Your Lovely Pets</h2>
+    <div class="pet-profile">
+      <img src=" ../../FrontEnd/Media/simba.png" alt="Simba" />
+      <div class="pet-info">
+        <h3>Simba</h3>
+      </div>
+      <div class="add-pet-container">
+        <a href="#add-pet-popup" class="Btn">
+          <div class="sign">+</div>
+          <div class="text">Add Pet</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="features-header">
+      <h2>Why Choose Us?</h2>
+    </div>
+    <div class="features-icons">
+      <div class="feature">
+        <img src=" ../../FrontEnd/Media/dogs.png" alt="Grooming" />
+        <h3>Professional Grooming</h3>
+        <p>Keep your pets clean and happy with expert grooming services.</p>
+      </div>
+      <div class="feature">
+        <img src=" ../../FrontEnd/Media/food.png" alt="Food" />
+        <h3>Healthy Food Choices</h3>
+        <p>Personalized diet plans to keep your pets strong and energetic.</p>
+      </div>
+      <div class="feature">
+        <img src=" ../../FrontEnd/Media/community.png" alt="Community" />
+        <h3>Pet Lovers Community</h3>
+        <p>Connect with fellow pet lovers and share experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="add-pet-popup" class="popup-overlay">
+    <div class="popup-content">
+      <a href="#" class="close-btn">&times;</a>
+      <h2>Add New Pet</h2>
+  
+      <form enctype="multipart/form-data">
+        <label for="petPhoto">Pet Photo</label>
+        <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required />
+  
+        <label for="petName">Pet Name</label>
+        <input type="text" id="petName" name="petName" required />
+  
+        <label for="petBirth">Birth Date</label>
+        <input type="date" id="petBirth" name="petBirth" required />
+  
+        <label for="petBreed">Breed / Style</label>
+        <input type="text" id="petBreed" name="petBreed" required />
+  
+        <!-- Disease List -->
+        <fieldset class="radio-list">
+          <legend>Disease</legend>
+          <ul>
+            <li>
+              <label>
+                <input type="radio" name="disease" value="Obesity" required />
+                Obesity
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="disease" value="Kidney Disease" />
+                Kidney Disease
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="radio" name="disease" value="Diabetes" />
+                Diabetes
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+  
+        <button type="submit" class="button-header">Add Pet</button>
+      </form>
+    </div>
+  </div>
+  
+
+</body>
+</html>

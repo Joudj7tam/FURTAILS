@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap');
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(100px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+body {
+  margin: 0;
+  font-family: "Merienda", serif;
+  animation: fadeIn 0.5s ease-in-out; 
+
+}
+
+/* ========== HEADER SECTION ========== */
+
+.header-container {
+  position: relative;
+  height: 55vh;
+  background: linear-gradient(to bottom, #b9dbe8, #f2f2f2);
+  transition: background 1s ease;
+  padding: 0 60px;
+  overflow: visible;
+  z-index: 2;
+
+}
+
+
+
+.header-content {
+  max-width: 50%;
+}
+
+.header-content h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #2c2c2c;
+  font-family: "Merienda", serif;
+}
+.highlight-letter {
+    color: #DB8C87;
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+/* ========== IMAGE + ICONS GROUP ========== */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+  
+  /* Push the image group to the right side */
+  .header-image-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-left: auto; /* Push to the right */
+    padding-right: 40px; /* Add some space from edge */
+  }
+  
+  .grooming-icons-strip {
+    position: absolute;
+    top: 27px; /* distance from top */
+    left: 71%;
+    transform: translateX(-50%);
+    width: 500px;
+    animation: floatIcons 6s ease-in-out infinite;
+    opacity: 0.95;
+    z-index: 5;
+  }
+  
+  @keyframes floatIcons {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+  
+  .header-image {
+   padding-top: 88px;
+    width: 550px;
+    height: 350px;
+
+  }
+  
+  .header-image img {
+    
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+  }
+  
+
+  
+  /*=============Services section=======*/
+  .services {
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+    animation: fadeIn 0.5s ease-in-out; /* Smooth page entrance */
+
+  }
+  
+  .service-card {
+    background: linear-gradient(to bottom, #e5f4f9, #ffffff);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    width: 300px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  
+  .service-card h3 {
+    font-size: 22px;
+    color: #2b6e88;
+    margin-bottom: 15px;
+    font-family: "Merienda", serif;
+  }
+  
+  .service-card p {
+    color: #2c2c2c;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+  
+  .price-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b6e88;
+  }
+.add-to-cart {
+  
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: #DB8C87;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+ 
