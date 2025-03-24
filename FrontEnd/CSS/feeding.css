@@ -1,0 +1,621 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap');
+
+body{
+  font-family: "Merienda", serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"Merienda", serif;
+}
+
+header {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(/FURTAILS/FrontEnd/Media/food.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+}
+.header-container{
+  position: absolute;
+  width:48%;
+  top: 28%;
+  left:10%;
+  padding: 2%;
+}
+.header-container h1 .your{
+  color:#a16f42;
+}
+.header-container h1{
+  margin-bottom: 5%;
+}
+.header-container h3 .Delicious{
+  color:#cf7627;
+}
+
+.header-container h3 .nutritious{
+  color:#519638;
+}
+
+
+/* Responsive Styles for Header */
+@media (max-width: 1024px) {
+  .header-container h1 {
+    font-size: 2rem;
+  }
+
+  .header-container h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-container h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .header-container h3 {
+    font-size: 0.8rem;
+  }
+}
+
+/* -------------------------end of header------------------------*/
+
+.meals-types {
+  width: 100%;
+  min-height: 50vh;  
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;  
+  background-color: #f2f2f2;
+  padding: 20px;  
+}
+
+a{ 
+  text-decoration: none;
+}
+
+.Recipes{
+  width:100%;
+  min-width: 500px;
+  min-height: 200px;
+  padding: 4%;
+  background-image: url(/FURTAILS/FrontEnd/Media/recipy.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color:white;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center text inside each flex item */
+}
+.Recipes mark{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border-radius: 50px;
+  background-color: rgba(127, 127, 127, 0.489); /* Semi-transparent white background */
+}
+
+.treat{
+  width:100%;
+  min-width: 500px;
+  min-height: 200px;
+  padding: 4%;
+  background-image: url(/FURTAILS/FrontEnd/Media/download\ \(50\).jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color:white;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center text inside each flex item */
+
+}
+
+.treat mark{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border-radius: 50px;
+  background-color: rgba(127, 127, 127, 0.489); /* Semi-transparent white background */
+}
+
+.treat ,.Recipes {
+  display: flex;  /* Make each item a flex container */
+  flex-direction: column;  /* Stack children vertically */
+  justify-content: center;  /* Vertically center content inside meal-item */
+  align-items: center;  /* Horizontally center content inside meal-item */
+  text-align: center;  /* Center text inside */
+  padding: 20px;
+  width: 45%;  /* Take up 45% of the container's width */
+  margin: 10px;  /* Space between items */
+  background-color: #fff;  /* Background color for each item */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation */
+}
+.treat h2,.Recipes h2{
+  font-size: 1.7rem;
+  margin-bottom: 2%;
+}
+
+.Recipes:hover,
+.treat:hover {
+  transform: translateY(-10px); /* Moves element 10px up */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhances shadow for a pop effect */
+}
+
+/*--------------------------------- start of meals section ---------------------------------*/
+.meals {
+  width: 100%;
+  min-height: 90vh; /* Ensure container has height */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/FURTAILS/FrontEnd/Media/table1.png); /* Use the table image as background */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 20px; /* Add padding for spacing */
+}
+
+.meals .kitchin {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  transform: translate(-50%, -50%);
+}
+
+.Kitchen-span{
+  color:#318313;
+}
+
+.illness-container {
+  display: flex;
+  flex-wrap: wrap; /* Enable flex wrapping */
+  justify-content: center; /* Center cards horizontally */
+  gap: 20px; /* Space between cards */
+  width: 100%;
+  max-width: 1200px; /* Limit maximum width for larger screens */
+  margin-top: 160px; /* Adjust based on the header position */
+}
+
+/* Sharp border for cards */
+.illness-card {
+  border: 1px solid rgb(84, 85, 83);
+  border-radius: 20%; /* Sharp corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: calc(33.33% - 40px); /* Equal width for 3 cards with gap */
+  min-width: 300px; /* Minimum width for smaller screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(111, 111, 111, 0.1); /* Semi-transparent white background */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* For positioning the plus button */
+}
+
+/* 360-degree rotation animation for food images */
+.food-image img {
+  width: 100%;
+  max-width: 200px; /* Limit image size */
+  height: auto;
+  border-radius: 10%;
+  margin-bottom: 15px;
+  margin-top: -130px; /* Adjust this value for larger screens */
+  animation: planetAn 60s linear infinite;
+}
+
+/* Plus button for adding to cart */
+.add-to-cart {
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+  background-color: #a16f42; 
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #cf7627; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.illness-card:hover {
+  transform: translateY(-10px); /* Moves element 10px up */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Enhances shadow for a pop effect */
+}
+
+.illness-content {
+  color: #ffffff; 
+}
+
+.illness-content h2 {
+  color: #c0790f;
+  padding-bottom: 3%;
+  font-size: 1.8rem;
+}
+
+.illness-content p {
+  color: white; 
+  padding-bottom: 3%;
+  font-size: 1rem;
+}
+
+.illness-content h3 {
+  color: #cf7627; 
+  padding-bottom: 3%;
+  font-size: 1.2rem;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ingredients-list li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredients-list .icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Add price styling to illness cards */
+.illness-content .price {
+  font-size: 1.2rem;
+  color: #318313;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .illness-card {
+    width: calc(50% - 20px); /* 2 cards per row on tablets */
+  }
+
+  .food-image img {
+    margin-top: -80px; /* Adjust margin-top for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .meals .kitchin {
+    font-size: 30px; /* Smaller font size for smaller screens */
+  }
+
+  .illness-card {
+    width: 100%; /* 1 card per row on mobile */
+    min-width: 250px; /* Adjust minimum width */
+    margin-top: 0; /* Reset margin-top for smaller screens */
+  }
+
+  .food-image img {
+    margin-top: 0; /* Reset margin-top for smaller screens */
+  }
+
+  .illness-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .illness-content p {
+    font-size: 0.9rem;
+  }
+
+  .illness-content h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .meals .kitchin {
+    font-size: 24px; /* Smaller font size for very small screens */
+  }
+
+  .illness-card {
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  .ingredients-list li {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes planetAn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*--------------------------------- start of Pet Treat Section ---------------------------------*/
+.pet-treats {
+  width: 100%;
+  min-height: 80vh;
+  padding: 40px 20px;
+  background-color: #f2f2f2; /* Light background for the section */
+  text-align: center;
+}
+
+.treats-heading {
+  font-size: 2.5rem;
+  color: black; 
+  margin-bottom: 30px;
+}
+
+.Treats-span{
+  color:#a16f42;
+}
+
+.treats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.treat-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 20px); /* 4 cards per row on larger screens */
+  min-width: 200px; /* Minimum width for smaller screens */
+  background-color: #ffffff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+}
+
+.treat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.treat-image img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.treat-content {
+  padding: 15px;
+  text-align: left;
+}
+
+.treat-content h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.treat-content p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.treat-content .price {
+  font-size: 1.2rem;
+  color: #cf7627; 
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.treat-content .add-to-cart {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #a16f42; 
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.treat-content .add-to-cart:hover {
+  background-color: #cf7627; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .treat-card {
+    width: calc(33.33% - 20px); /* 3 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .treat-card {
+    width: calc(50% - 20px); /* 2 cards per row on smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .treat-card {
+    width: 100%; /* 1 card per row on mobile */
+  }
+}
+
+
+
+/*------------------------------------ Start of footer styling ------------------------------------*/
+.footer {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  position: relative;
+  background-size: cover;
+  color: rgb(233, 232, 232);
+  text-align: center;
+  
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #99abab;
+/*  background-color: rgb(0 0 0 / 50%);*/
+}
+
+.footer .container {
+  position: relative;
+  padding: 0 20px; /* Add padding to prevent content from touching edges */
+}
+
+.footer img {
+  width: 15%;
+  max-width: 150px; /* Limit maximum width */
+  height: auto; /* Ensure aspect ratio is maintained */
+  margin: 0 auto; /* Center the image */
+  display: block; /* Ensure it behaves as a block element */
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow icons to wrap on smaller screens */
+  gap: 10px; /* Add spacing between icons */
+  margin: 15px 0;
+}
+
+.footer .social-icons i {
+  padding: 10px;
+  color: black;
+  font-size: 1.25rem; /* 20px */
+  background-color: rgb(136, 136, 136);
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.footer .social-icons i:hover {
+  background-color: #717e80; /* Add hover effect */
+  transform: translate(0 , -10%);
+}
+
+.footer .text {
+  text-transform: uppercase;
+  padding: 0;
+  border-bottom: 1px solid white;
+  font-size: 1.375rem; /* 22px */
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.footer .copyright {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 0.875rem; /* 14px */
+}
+
+.footer .copyright span {
+  color: rgb(18, 18, 19);
+  font-weight: bold;
+}
+
+/* End of footer styling */
+
+/* -----------------------Media Queries for Responsiveness----------------------- */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  .footer img {
+    width: 20%; /* Adjust logo size for tablets */
+  }
+
+  .footer .social-icons i {
+    font-size: 1rem; /* 16px */
+    padding: 8px;
+  }
+
+  .footer .text {
+    font-size: 1.125rem; /* 18px */
+    padding: 15px;
+  }
+
+  .footer .copyright {
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .footer img {
+    width: 30%; /* Adjust logo size for mobile */
+  }
+
+  .footer .social-icons {
+    gap: 5px; /* Reduce spacing between icons */
+  }
+
+  .footer .social-icons i {
+    font-size: 0.875rem; /* 14px */
+    padding: 6px;
+  }
+
+  .footer .text {
+    font-size: 1rem; /* 16px */
+    padding: 10px;
+  }
+
+  .footer .copyright {
+    font-size: 0.6875rem; /* 11px */
+  }
+}
