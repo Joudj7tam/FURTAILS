@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <title>Login\Signin</title>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div id="sign-up-container" class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>________________________Or________________________</span>
+                <div class="email-container">
+                    <input type="email" placeholder="example@gmail.com">
+                    <img src="../Media/email.png" alt="email" class="email-icon" id="signup-email">
+                </div>
+                <div class="phone-container">
+                    <input type="tel" placeholder="Phone Number" pattern="[0-9]" maxlength="10">
+                    <img src="../Media/phone.png" alt="phone" class="phone-icon" id="signup-phone">
+                </div>
+                <div class="password-container">
+                    <input type="password" id="signup-password" placeholder="Password">
+                    <img src="../Media/view.png" alt="view" class="eye-icon" id="signup-eye">
+                </div>
+                <div class="password-container">
+                    <input type="password" id="signup-confirm-password" placeholder="Confirm Password">
+                    <img src="../Media/view.png" alt="view" class="eye-icon" id="signup-confirm-eye">
+                </div>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div id="sign-in-container" class="form-container sign-in">
+            <form>
+                <h1>Welcome Back!!</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>________________________Or________________________</span>
+                <div class="email-container">
+                    <input type="email" placeholder="example@gmail.com">
+                    <img src="../Media/email.png" alt="email" class="email-icon" id="signin-email">
+                </div>
+                <div class="password-container">
+                    <input type="password" id="signin-password" placeholder="Password">
+                    <img src="../Media/view.png" alt="view" class="eye-icon" id="signin-eye">
+                </div>
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Already Have An Account?</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                    <!-- Animated cat -->
+                    <div class="cat-container">
+                        <div class="shadow"></div>
+                        <div class="cat">
+                            <div class="ear"></div>
+                            <div class="eye"></div>
+                            <div class="mouth"></div>
+                            <div class="nose"></div>
+                            <div class="tail"></div>
+                            <div class="body"></div>
+                            <div class="bubble"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Don't Have An Account?</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                    <!-- Animated cat -->
+                    <div class="cat-container">
+                        <div class="shadow"></div>
+                        <div class="cat">
+                            <div class="ear"></div>
+                            <div class="eye"></div>
+                            <div class="mouth"></div>
+                            <div class="nose"></div>
+                            <div class="tail"></div>
+                            <div class="body"></div>
+                            <div class="bubble"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/login.js"></script>
+</body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/petProfile.css">
+    <title>Pet Profile</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Information Container -->
+        <div class="information-container">
+            <div class="petPic">
+                <img src="../Media/citty.jpg" alt="petPic" id="petPic">
+            </div>
+            <div class="pet-info">
+                <div>
+                    <h2>Pet Info</h2>
+                </div>
+                <div><strong>Name:</strong> <span id="petName" class="editable-field">Fluffy</span></div>
+                <div><strong>Sex:</strong> <span id="petSex" class="editable-field">Female</span></div>
+                <div><strong>Age:</strong> <span id="petAge" class="editable-field">3</span></div>
+                <div><strong>Breed:</strong> <span id="petBreed" class="editable-field">Golden Retriever</span></div>
+                <div><strong>Owner:</strong> <span id="petOwner" class="editable-field">John Doe</span></div>
+            </div>
+            <button id="editButton"><i class="fas fa-edit"></i> Edit</button>
+        </div>
+
+        <!-- Feeding History Container -->
+        <div class="feeding-history-container">
+            <h2>Feeding History</h2>
+            <div class="orders-container">
+                <div class="order-header">
+                    <span>Number</span>
+                    <span>Date</span>
+                    <span>Status</span>
+                    <span>Info</span>
+                </div>
+                <div class="order">
+                    <span class="order-number">1</span>
+                    <span class="order-date">2023-10-01</span>
+                    <span class="order-status">Completed</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">2</span>
+                    <span class="order-date">2023-09-28</span>
+                    <span class="order-status">Pending</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">3</span>
+                    <span class="order-date">2023-10-01</span>
+                    <span class="order-status">Completed</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">4</span>
+                    <span class="order-date">2023-09-28</span>
+                    <span class="order-status">Pending</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <!-- Add more orders here -->
+            </div>
+        </div>
+
+        <!-- Grooming History Container -->
+        <div class="grooming-history-container">
+            <h2>Grooming History</h2>
+            <div class="orders-container">
+                <div class="order-header">
+                    <span>Number</span>
+                    <span>Date</span>
+                    <span>Status</span>
+                    <span>Info</span>
+                </div>
+                <div class="order">
+                    <span class="order-number">1</span>
+                    <span class="order-date">2023-10-01</span>
+                    <span class="order-status">Completed</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">2</span>
+                    <span class="order-date">2023-09-28</span>
+                    <span class="order-status">Pending</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">3</span>
+                    <span class="order-date">2023-10-01</span>
+                    <span class="order-status">Completed</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <div class="order">
+                    <span class="order-number">4</span>
+                    <span class="order-date">2023-09-28</span>
+                    <span class="order-status">Pending</span>
+                    <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+                </div>
+                <!-- Add more orders here -->
+            </div>
+        </div>
+
+        <!-- Pop-up Modal -->
+        <div id="orderInfoModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <h2>Order Receipt</h2>
+                <div class="receipt-info">
+                    <p><strong>Pet Name:</strong> <span id="receiptPetName">Fluffy</span></p>
+                    <p><strong>Order Number:</strong> <span id="receiptOrderNumber">1</span></p>
+                    <p><strong>Order Date:</strong> <span id="receiptOrderDate">2023-10-01</span></p>
+                    <p><strong>Status:</strong> <span id="receiptOrderStatus">Completed</span></p>
+                    <h3>Items:</h3>
+                    <ul id="receiptServices">
+                        <!-- Services will be dynamically added here -->
+                        <li><span>Feeding</span><span>$20.00</span></li>
+                        <li><span>Grooming</span><span>$30.00</span></li>
+                    </ul>
+                    <p class="total"><strong>Total Price:</strong> $<span id="receiptTotalPrice">50.00</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../JS/petProfile.js"></script>
+</body>
+</html>
