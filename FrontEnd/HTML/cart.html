@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/cart.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <div class="cart">
+        <div class="cart-left-side">
+            <!-- Cart Header -->
+            <div class="cart-item-title">
+                <div class="cart-header">Items</div>
+                <div class="cart-header">Title</div>
+                <div class="cart-header">Price</div>
+                <div class="cart-header">Quantity</div>
+                <div class="cart-header">Total</div>
+                <div class="cart-header">Remove</div>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="cart-items-item">
+                <div class="cart-item-detail">
+                    <img src="../Media/pet-grooming.png" alt="Item 1">
+                </div>
+                <div class="cart-item-detail">
+                    <p>Item 1</p>
+                </div>
+                <div class="cart-item-detail">
+                    <p>$10.00</p>
+                </div>
+                <div class="cart-item-detail">
+                    <p>2</p>
+                </div>
+                <div class="cart-item-detail">
+                    <p>$20.00</p>
+                </div>
+                <div class="cart-item-detail cross">
+                    X
+                </div>
+            </div>
+
+            <!-- Cart Empty State -->
+            <div class="cart-empty">
+                <img src="../Media/empty.png" alt="Empty cart" class="empty-cart-image">
+                <p>Your shopping cart is empty</p>
+                <a href="#" class="start-shopping-link">Start shopping</a>
+            </div>
+        </div>
+
+        <!-- Cart Right Side (Form and Totals) -->
+        <div class="cart-right-side">
+            <h2>Order Summary</h2>
+            <!-- Delivery Information Form -->
+            <div class="location">
+                <p class="title">Delivery Information</p>
+                <div class="multi-fields">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="multi-fields">
+                    <input type="text" placeholder="Street" required>
+                </div>
+                <div class="multi-fields">
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="State" required>
+                </div>
+                <div class="multi-fields">
+                    <input type="text" placeholder="Zip Code" required>
+                    <input type="text" placeholder="Country" required>
+                </div>
+                <div class="multi-fields">
+                    <input type="text" placeholder="Phone" required>
+                </div>
+            </div>
+
+            <!-- Cart Totals -->
+            <div class="cart-totals">
+                <div class="cart-total-details">
+                    <p>Subtotal</p>
+                    <p>$20.00</p>
+                </div>
+                <div class="cart-total-details">
+                    <p>Delivery Fee</p>
+                    <p>$2.00</p>
+                </div>
+                <div class="cart-total-details">
+                    <b>Total</b>
+                    <b>$22.00</b>
+                </div>
+            </div>
+            <div class="cart-totals-actions">
+                <button>PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+
+        <!-- Pop-up Modal -->
+        <div id="completeOrderModal" class="modal">
+            <div class="modal-content">
+                <h1>Thank You !!</h1>
+                <p>Your order has been placed successfully.</p>
+                <button onclick="window.location.href='#'">Go To Home Page</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../JS/cart.js"></script>
+</body>
+
+</html>

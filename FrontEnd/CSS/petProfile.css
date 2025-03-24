@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    font-family: "Merienda", serif;
+    color: #404040;
+}
+
+.container {
+    min-width: 100%;
+    background: linear-gradient(135deg, #E5CDDD, #ffffff);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 45% 45%;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.information-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    max-width: 90%;
+    background-color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    grid-row: 1 / 3;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.petPic {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 70px;
+    margin-bottom: 5px;
+}
+
+#petPic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pet-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    color: rgb(72, 72, 72);
+}
+
+.pet-info h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+    font-weight: 600;
+    font-family: "Merienda", serif;
+}
+
+.pet-info div {
+    display: flex;
+    align-items: center;
+}
+
+.pet-info strong {
+    width: 100px;
+    text-align: left;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.pet-info .editable-field {
+    display: inline-block;
+    width: 250px;
+    padding: 4px;
+    color: rgb(150, 150, 150);
+    border-bottom: 1px solid #b5cfd4;
+    /* Bottom border */
+    outline: none;
+    /* Remove outline */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.pet-info .editable-field:focus {
+    border-bottom: 2px solid #9FCFD7;
+    /* Highlight on focus */
+}
+
+.pet-info .editable-field[contenteditable="true"] {
+    color: #333;
+    /* Darker text when editable */
+    border-bottom: 2px solid #9FCFD7;
+    /* Highlight when editable */
+}
+
+#editButton {
+    padding: 10px 20px;
+    background-color: #9FCFD7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#editButton:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #7ac9d7;
+    animation: buttonAnimation 0.5s ease forwards;
+}
+
+@keyframes buttonAnimation {
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+.feeding-history-container,
+.grooming-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    background-color: white;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    height: 230px;
+}
+
+.feeding-history-container {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.grooming-history-container {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.feeding-history-container h2,
+.grooming-history-container h2 {
+    font-family: "Merienda", serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.orders-container {
+    width: 100%;
+    overflow-y: auto;
+    /* Add scrollbar */
+    max-height: 320px;
+    /* Adjust based on container height */
+}
+
+.orders-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.orders-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.orders-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #dcaacc, #9FCFD7);
+    /* Gradient thumb */
+    border-radius: 5px;
+    height: 100px;
+}
+
+.orders-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #9FCFD7, #dcaacc);
+    /* Reverse gradient on hover */
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    /* Add a thicker border for the header */
+    position: sticky;
+    top: 0;
+    /* Stick the header to the top */
+    z-index: 1;
+    /* Ensure the header stays above the orders */
+    background-color: white;
+}
+
+.order-header span,
+.order a {
+    flex: 1;
+    text-align: center;
+}
+
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.order:nth-child(even) {
+    background-color: #f8e6f0;
+}
+
+.order-number,
+.order-date,
+.order-status,
+.order-info {
+    flex: 1;
+    text-align: center;
+}
+
+.order-info img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.order-info img:hover {
+    box-shadow: 0 0 0 0.5px gray;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospace font for receipt-like look */
+    border: 7px solid #9FCFD7;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Receipt Styles */
+.receipt-info {
+    font-size: 16px;
+    color: #333;
+    margin: 30px 80px 40px 80px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    border-bottom: 2px double #E5CDDD;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.receipt-info p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-info strong {
+    font-weight: bold;
+}
+
+.receipt-info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.receipt-info ul li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #E5CDDD;
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-info ul li:last-child {
+    border-bottom: none;
+}
+
+.receipt-info .total {
+    font-weight: bold;
+    margin-top: 20px;
+    border-top: 2px solid #E5CDDD;
+    padding-top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 950px) {
+    .container {
+        grid-template-columns: 100%;
+        height: 100%;
+    }
+
+    .information-container,
+    .feeding-history-container,
+    .grooming-history-container{
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 450px) {
+    .information-container,
+    .feeding-history-container,
+    .grooming-history-container{
+        position: relative;
+        left: 30px;
+    }
+}

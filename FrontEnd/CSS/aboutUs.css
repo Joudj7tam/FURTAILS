@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap'); 
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    color: #404040;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* header section */
+header{
+    background-color: #9FCFD7;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;   
+    text-align: center; 
+}
+
+header h1{
+    font-size: 50px;
+    font-family: "Merienda", serif;
+    margin: 0;
+}
+
+header h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0 0;
+}
+
+span#us{
+    color: #DB8C87;
+}
+
+.headerImg {
+    position: relative;
+    width: 30%;
+}
+
+/* about us section */
+.aboutUS-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(255, 255, 255); 
+    margin-top: 20px;
+    gap: 150px;
+}
+
+.aboutUS-img-container{
+    display: flex;
+    justify-content: center;
+    max-width: 500px; /* Limit width */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.aboutUsImg{
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.guestionImg{
+    width: 10%;
+    height: 10%;
+}
+
+.aboutUS-text-container{
+    min-width: 250px;
+    max-width: 700px;
+    flex: 1;
+    line-height: 2;
+}
+
+.aboutUS-text-container h1{
+    font-size: 60px;
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
+    font-family: "Merienda", serif;
+}
+
+.aboutUS-text-container h1 span{
+    color: #DB8C87;
+}
+
+.aboutUS-text-container p{
+    font-size: 20px;
+    font-weight: 500;
+    animation: fadeIn 0.6s ease-in-out;
+
+}
+
+/* values section */
+.values-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 70px;
+    background-color: #9fcfd73b;
+    width: 100%;
+}
+
+.values-container h1{
+    font-family: "Merienda", serif;
+}
+
+.values-text-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.values-text-container .Care,
+.values-text-container .simple, 
+.values-text-container .quality{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px; 
+    padding: 50px;
+    text-align: center;
+}
+
+.values-container img{
+    display: block;
+    width: 100px; 
+    padding: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #db8d87c3;
+}
+
+.values-container img:hover{
+    animation: valuesHoverAnimation 0.3s ease forwards;
+}
+
+@keyframes valuesHoverAnimation {
+    100%{
+        transform: translateY(-15px);
+        background-color: #d0625ac3;
+    }
+}
+
+.values-text-container h4,
+.values-text-container h4, 
+.values-text-container h4{
+    margin-bottom: 20px;
+}
+
+/* Services section */
+.Services-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 30px;
+}
+
+.Services-explain-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    min-width: none;
+    border-radius: 20px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 500;
+    min-height: 610px;
+    padding: 30px;
+    gap: 10px;
+    background: linear-gradient(to bottom right, #9fcfd76a, #ffffff85);
+    position: relative; /* Required for pseudo-element */
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+}
+
+.Services-explain-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../Media/servicesCat.png') repeat;
+    z-index: -1; 
+}
+
+.Services-explain-container h1{
+    font-family: "Merienda", serif;
+}
+
+.Services-explain-container p{
+    color: #5a5a5a;
+}
+
+.Services-explain-container a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: fit-content;
+    border-radius: 50px;
+    color: #fff;
+    padding: 7px;
+    background-color: #db8d87c3;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 16px;
+}
+
+.Services-explain-container a:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #d0625ac3;
+    animation: buttonAnimation 0.3s ease forwards;
+}
+
+@keyframes buttonAnimation {
+    100% {
+        box-shadow:
+            0 0 5px #fff,
+            0 0 10px #DB8C87,
+            inset 0 0 10px #DB8C87;
+            transform: translateY(-5px);
+    }
+}
+
+.Services-text-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.Services-text-container .grooming,
+.Services-text-container .meals, 
+.Services-text-container .registr{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px; 
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    max-width: 230px;
+    min-height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Services-text-container .grooming:hover,
+.Services-text-container .meals:hover, 
+.Services-text-container .registr:hover{
+    animation: servicesHoverAnimation 0.5s ease forwards;
+}
+
+.Services-container img{
+    max-width: 100px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.grooming h4, .meals h4, .registr h4{
+    margin-bottom: 0;
+    font-weight: 750;
+    color: #82abb3;
+}
+
+@keyframes servicesHoverAnimation {
+    100%{
+        transform: translateY(-15px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        background-color: #edc0bc75;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 950px) {
+    .aboutUS-container{
+        flex-direction: column-reverse;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 730px) {
+    .Services-explain-container{
+        max-width: 300px;
+    }
+    .Services-text-container{
+        grid-template-columns: 1fr;
+    }
+}
