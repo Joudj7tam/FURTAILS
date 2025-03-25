@@ -1,8 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap');
-
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(100px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
 body{
   font-family: "Merienda", serif;
+  animation: fadeIn 0.5s ease-in-out; 
+
 }
 * {
   margin: 0;

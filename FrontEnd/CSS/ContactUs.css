@@ -143,14 +143,14 @@ body {
 }
 
 
-.social-icons {
+.social-iconsh {
     display: flex;
     gap: 15px;
     margin-top: 20px;
     justify-content: center;
 }
 
-.social-icons a {
+.social-iconsh a {
     width: 45px;
     height: 45px;
     display: flex;
@@ -161,13 +161,13 @@ body {
     transition: transform 0.3s, background 0.3s;
 }
 
-.social-icons a img {
+.social-iconsh a img {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);
 }
 
-.social-icons a:hover {
+.social-iconsh a:hover {
     transform: scale(1.1);
     background: #b9706e;
 }
