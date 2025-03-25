@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="website icon" type="png" href="../../FrontEnd/Media/fur-logo-.png">
+    <link rel="icon" type="image/png" href="../../FrontEnd/Media/fur-logo-.png">
     <link rel="stylesheet" href="../CSS/cart.css">
     <title>Cart</title>
 </head>
@@ -48,7 +48,10 @@
                 </label>
             </div>
         </nav>
-        <section class="cart-left-side">
+        
+        <!-- Cart Left Side -->
+        <div class="cart-left-side">
+            <h2 class="visually-hidden">Cart Items</h2>
             <!-- Cart Header -->
             <div class="cart-item-title">
                 <div class="cart-header">Items</div>
@@ -87,10 +90,10 @@
                 <p>Your shopping cart is empty</p>
                 <a href="HomePage.html" class="start-shopping-link">Start shopping</a>
             </div>
-        </section>
+        </div>
 
         <!-- Cart Right Side (Form and Totals) -->
-        <section class="cart-right-side">
+        <div class="cart-right-side">
             <h2>Order Summary</h2>
             <!-- Delivery Information Form -->
             <div class="location">
@@ -142,11 +145,9 @@
                 </div>
             </div>
             <div class="cart-totals-actions">
-                <a href="#completeOrderModal">
-                    <button>PROCEED TO CHECKOUT</button>
-                </a>
+                <button onclick="window.location.href='#completeOrderModal'">PROCEED TO CHECKOUT</button>
             </div>
-        </section>
+        </div>
 
         <!-- Pop-up Modal -->
         <div id="completeOrderModal" class="modal">
@@ -165,16 +166,16 @@
 
                 <form enctype="multipart/form-data">
                     <label for="petPhoto">Pet Photo</label>
-                    <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required />
+                    <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required>
 
                     <label for="petName">Pet Name</label>
-                    <input type="text" id="petName" name="petName" required />
+                    <input type="text" id="petName" name="petName" required>
 
                     <label for="petBirth">Birth Date</label>
-                    <input type="date" id="petBirth" name="petBirth" required />
+                    <input type="date" id="petBirth" name="petBirth" required>
 
                     <label for="petBreed">Breed / Style</label>
-                    <input type="text" id="petBreed" name="petBreed" required />
+                    <input type="text" id="petBreed" name="petBreed" required>
 
                     <!-- Disease List -->
                     <fieldset class="radio-list">
@@ -182,19 +183,19 @@
                         <ul>
                             <li>
                                 <label>
-                                    <input type="radio" name="disease" value="Obesity" required />
+                                    <input type="radio" name="disease" value="Obesity" required>
                                     Obesity
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="disease" value="Kidney Disease" />
+                                    <input type="radio" name="disease" value="Kidney Disease">
                                     Kidney Disease
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="disease" value="Diabetes" />
+                                    <input type="radio" name="disease" value="Diabetes">
                                     Diabetes
                                 </label>
                             </li>
@@ -205,7 +206,6 @@
                 </form>
             </div>
         </div>
-
     </section>
 
     <script src="../JS/cart.js"></script>
