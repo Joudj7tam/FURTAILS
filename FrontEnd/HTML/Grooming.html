@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grooming </title>
-  <link rel="website icon" type="png" href="../../FrontEnd/Media/title.png">
-  <link rel="stylesheet" href="../CSS/grooming.css" />
+  <link rel="icon" type="image/png" href="../../FrontEnd/Media/title.png">
+  <link rel="stylesheet" href="../CSS/grooming.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <div class="header-container grooming-header">
+  <nav class="NavBar">
+    <div class="nav-container">
+      <input type="checkbox" id="menuToggle" class="menu-toggle">
+      
+      <div class="logo-div">
+        <a href="../HTML/Welcome2.html" class="logo">
+          <img src="../Media/fur-logo-.png" alt="FurTail logo">
+        </a>
+      </div>
 
-        
-        <img src="../../FrontEnd/Media/headericons.png" alt="Grooming Icons" class="grooming-icons-strip" />
+      <div class="list-item" id="navList">
+        <ul class="nav-list">
+          <li><a class="text-list" href="#">Home</a></li>
+          <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
+          <li><a class="text-list" href="#">Services</a></li>
+          <li><a class="text-list" href="#">Contact us</a></li>
+          <li class="nav-icons">
+            <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
+              <i class="fas fa-user"></i>
+            </a>
+            <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <label for="menuToggle" class="menu-icon-container">
+        <span class="menu-icon">
+          <i class="fas fa-bars"></i>
+        </span>
+      </label>
+    </div>
+  </nav>
+    <div class="header-container grooming-header">
+        <img src="../../FrontEnd/Media/headericons.png" alt="Grooming Icons" class="grooming-icons-strip">
       
         <header>
           <div class="header-content">
@@ -25,7 +59,7 @@
       
           <div class="header-image-group">
             <div class="header-image">
-              <img src=" ../../FrontEnd/Media/groomingHeader.png" alt="Happy Groomed Dog" />
+              <img src=" ../../FrontEnd/Media/groomingHeader.png" alt="Happy Groomed Dog">
             </div>
           </div>
         </header>
@@ -37,7 +71,7 @@
       <h3>Basic Clean</h3>
       <p>Bath & Blow Dry<br>Nail Trim<br>Ear Cleaning</p>
     </div>
-    <img src=" ../../FrontEnd/Media/shower.jpeg" alt="Basic Groom Cat" class="service-image" />
+    <img src=" ../../FrontEnd/Media/shower.jpeg" alt="Basic Groom Cat" class="service-image">
     <div class="price-container">
         <span class="price">$25</span>
     </div>
@@ -54,7 +88,7 @@
       </p>  
     </div>
     <div class="image-container">
-      <img src=" ../../FrontEnd/Media/fullgroom.jpeg" alt="Full Groom Dog" class="service-image" />
+      <img src=" ../../FrontEnd/Media/fullgroom.jpeg" alt="Full Groom Dog" class="service-image">
     </div>
     <div class="price-container">
         <span class="price">$45</span>
@@ -68,12 +102,26 @@
       <h3>Premium Spa</h3>
       <p>Full Groom + Massage<br>Deshedding Treatment<br>Pet Cologne</p>
     </div>
-    <img src=" ../../FrontEnd/Media/spa.jpeg" alt="Premium Spa Cat" class="service-image" />
+    <img src=" ../../FrontEnd/Media/spa.jpeg" alt="Premium Spa Cat" class="service-image">
     <div class="price-container">
         <span class="price">$65</span>
     </div>
     <button class="add-to-cart">+</button> 
+ 
   </div>
 </section>
+<footer class="footer">
+  <div class="container">
+    <img src="../Media/fur-logo-.png" alt="logo">
+    <p class="text">WE ARE SOCIAL</p>
+    <div class="social-icons">
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
+    </div>
+    <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+  </div>
+</footer>
 </body>
 </html>
