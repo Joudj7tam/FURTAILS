@@ -5,13 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="website icon" type="png" href="../../FrontEnd/Media/fur-logo-.png">
     <link rel="stylesheet" href="../CSS/cart.css">
     <title>Cart</title>
 </head>
 
 <body>
-    <div class="cart">
-        <div class="cart-left-side">
+    <section class="cart">
+        <!-- ========== NAVIGATION HEADER ========== -->
+        <nav class="NavBar">
+            <div class="nav-container">
+                <input type="checkbox" id="menuToggle" class="menu-toggle">
+
+                <div class="logo-div">
+                    <a href="../HTML/Welcome2.html" class="logo">
+                        <img src="../Media/fur-logo-.png" alt="FurTail logo">
+                    </a>
+                </div>
+
+                <div class="list-item" id="navList">
+                    <ul class="nav-list">
+                        <li><a class="text-list" href="../HTML/HomePage.html">Home</a></li>
+                        <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
+                        <li><a class="text-list" href="../HTML/HomePage.html#services">Services</a></li>
+                        <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
+                        <li class="nav-icons">
+                            <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <label for="menuToggle" class="menu-icon-container">
+                    <span class="menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </label>
+            </div>
+        </nav>
+        <section class="cart-left-side">
             <!-- Cart Header -->
             <div class="cart-item-title">
                 <div class="cart-header">Items</div>
@@ -48,12 +85,12 @@
             <div class="cart-empty">
                 <img src="../Media/empty.png" alt="Empty cart" class="empty-cart-image">
                 <p>Your shopping cart is empty</p>
-                <a href="#" class="start-shopping-link">Start shopping</a>
+                <a href="HomePage.html" class="start-shopping-link">Start shopping</a>
             </div>
-        </div>
+        </section>
 
         <!-- Cart Right Side (Form and Totals) -->
-        <div class="cart-right-side">
+        <section class="cart-right-side">
             <h2>Order Summary</h2>
             <!-- Delivery Information Form -->
             <div class="location">
@@ -78,6 +115,17 @@
                 </div>
             </div>
 
+            <div class="pet-selection">
+                <p class="title">Select Pet</p>
+                <select id="pet-select" class="pet-dropdown">
+                    <option value="">-- Select a pet --</option>
+                    <option value="dog">Fluffy</option>
+                    <option value="cat">Semba</option>
+                    <option value="bird">Max</option>
+                </select>
+                <a href="#add-pet-popup" class="add-pet-button">+ Add New Pet</a>
+            </div>
+
             <!-- Cart Totals -->
             <div class="cart-totals">
                 <div class="cart-total-details">
@@ -94,22 +142,89 @@
                 </div>
             </div>
             <div class="cart-totals-actions">
-                <button>PROCEED TO CHECKOUT</button>
+                <a href="#completeOrderModal">
+                    <button>PROCEED TO CHECKOUT</button>
+                </a>
             </div>
-        </div>
+        </section>
 
         <!-- Pop-up Modal -->
         <div id="completeOrderModal" class="modal">
             <div class="modal-content">
                 <h1>Thank You !!</h1>
                 <p>Your order has been placed successfully.</p>
-                <button onclick="window.location.href='#'">Go To Home Page</button>
+                <button onclick="window.location.href='HomePage.html'">Go To Home Page</button>
             </div>
         </div>
 
-    </div>
+        <!-- Add pet pop up -->
+        <div id="add-pet-popup" class="popup-overlay">
+            <div class="popup-content">
+                <a href="#" class="close-btn">&times;</a>
+                <h2>Add New Pet</h2>
+
+                <form enctype="multipart/form-data">
+                    <label for="petPhoto">Pet Photo</label>
+                    <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required />
+
+                    <label for="petName">Pet Name</label>
+                    <input type="text" id="petName" name="petName" required />
+
+                    <label for="petBirth">Birth Date</label>
+                    <input type="date" id="petBirth" name="petBirth" required />
+
+                    <label for="petBreed">Breed / Style</label>
+                    <input type="text" id="petBreed" name="petBreed" required />
+
+                    <!-- Disease List -->
+                    <fieldset class="radio-list">
+                        <legend>Disease</legend>
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="radio" name="disease" value="Obesity" required />
+                                    Obesity
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="disease" value="Kidney Disease" />
+                                    Kidney Disease
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="disease" value="Diabetes" />
+                                    Diabetes
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+
+                    <button type="submit" class="button-header">Add Pet</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
 
     <script src="../JS/cart.js"></script>
+
+    <!-- start of footer-->
+    <footer class="footer">
+        <div class="container">
+            <img src="../Media/fur-logo-.png" alt="FurTail logo">
+            <p class="text">WE ARE SOCIAL</p>
+            <div class="social-icons">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
+            </div>
+            <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+        </div>
+    </footer>
+    <!-- end of footer-->
 </body>
 
 </html>

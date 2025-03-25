@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Playwrite+IT+Moderna:wght@100..400&family=Spinnaker&display=swap');
 
 * {
   margin: 0;
@@ -32,6 +32,11 @@ body {
   width: 768px;
   max-width: 100%;
   min-height: 480px;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.mobile-toggle{
+  display: none;
 }
 
 .container p {
@@ -58,17 +63,52 @@ body {
 }
 
 .container button {
-  background-color: #DB8C87;
-  color: #fff;
-  font-size: 12px;
-  padding: 10px 45px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  margin: 0;
   margin-top: 10px;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #DB8C87;
+  background: transparent;
   cursor: pointer;
+  transition: all 0.4s ease;
+  border: 2px solid #DB8C87;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #DB8C87;
+  font-size: small;
+}
+
+.toggle-panel button.hidden {
+  color: white;
+}
+
+.toggle-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../Media/pet-love2.png') no-repeat center center;
+  background-size: 100% auto; /* 70% width, auto height */
+  z-index: -1;
+  opacity: 0.7;
+  filter: brightness(1.2); 
+  z-index: -1;
+  background-position: 140px 200px;
+}
+
+.container button:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #DB8C87;
+}
+
+.container button:active {
+  transform: scale(0.95);
 }
 
 .container button.hidden {
@@ -114,7 +154,7 @@ body {
   transform: translateX(100%);
 }
 
-.sign-in a:hover{
+.sign-in a:hover {
   color: #CB5A52;
 }
 
@@ -150,7 +190,6 @@ body {
 .social-icons {
   margin: 20px 0;
 }
-
 
 .social-icons a {
   border: 1px solid #ccc;
@@ -248,6 +287,128 @@ body {
   height: 20px;
 }
 
+/* Forgot Password Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  border: 2px solid #DB8C87;
+}
+
+.modal-content h1 {
+  color: #DB8C87;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Input Fields - Matching Existing Styles */
+.modal-content input {
+  background-color: #ece9e9;
+  border: none;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  font-family: "Merienda", serif;
+  transition: all 0.3s ease;
+}
+
+.modal-content input:focus {
+  box-shadow: 0 0 0 2px rgba(219, 140, 135, 0.3);
+}
+
+/* Password Container - Matching Existing Styles */
+.modal-content .password-container,
+.modal-content .email-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.modal-content .eye-icon,
+.modal-content .email-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+/* Reset Password Button - Matching Existing Styles */
+.modal-content button[type="submit"] {
+  background-color: #DB8C87;
+  color: white;
+  border: 2px solid #DB8C87;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  width: 100%;
+  margin-top: 10px;
+  font-family: "Merienda", serif;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #CB5A52;
+  border-color: #CB5A52;
+}
+
+/* Close Link - Matching Existing Styles */
+.close-modal {
+  display: inline-block;
+  margin-top: 20px;
+  color: #DB8C87;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  text-decoration: underline;
+  color: #CB5A52;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /*CAT ANIMATIONS*/
 .cat-container {
   height: 30px;
@@ -289,7 +450,6 @@ body {
   border-radius: 0 0 12px 12px;
   border-top: none;
   display: block;
-
 }
 
 .eye {
@@ -427,8 +587,153 @@ body {
   animation: shadow 2s infinite;
 }
 
-@media (max-width: 500px) {
-  .social-icons a{
-    margin: 2px;
+/* Media Query for Small Screens */
+@media (max-width: 630px) {
+  body {
+    padding: 10px;
+    height: auto;
+    min-height: 100vh;
   }
+
+  .container {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: visible;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 30px 20px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .sign-in,
+  .sign-up {
+    position: relative;
+    width: 100%;
+    transform: none;
+  }
+
+  /* Mobile toggle buttons */
+  .mobile-toggle {
+    display: flex;
+    width: 100%;
+    background: linear-gradient(to right, #DB8C87, #CB5A52);
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+
+  .mobile-toggle-btn {
+    flex: 1;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .mobile-toggle-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hide desktop toggle */
+  .toggle-container {
+    display: none;
+  }
+
+  /* Show only active form */
+  .form-container {
+    display: none;
+  }
+
+  .form-container.active {
+    display: flex;
+  }
+
+  /* Adjust other elements */
+  .social-icons a {
+    margin: 0 8px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .container h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .container input {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 6px 0;
+  }
+
+  .container button {
+    font-size: 14px;
+    padding: 10px 25px;
+    margin-top: 15px;
+  }
+
+  button.mobile-toggle-btn {
+    color: white;
+  }
+
+  .container a {
+    font-size: 12px;
+  }
+
+  .password-container,
+  .email-container,
+  .phone-container {
+    margin-bottom: 10px;
+  }
+
+  .eye-icon,
+  .email-icon,
+  .phone-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Hide cat animation on mobile */
+  .cat-container {
+    display: none;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+
+.modal-content h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.modal-content button[type="submit"] {
+    padding: 10px 0;
+    font-size: 15px;
+}
+
+.modal-content .eye-icon,
+.modal-content .email-icon {
+    right: 12px;
+    width: 18px;
+    height: 18px;
+}
 }

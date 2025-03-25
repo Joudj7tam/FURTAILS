@@ -8,111 +8,142 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+
+  <!-- Start of Header and landing part -->
 <div class="The-container" id="welcome-page">
-  <!--start of header-->
+  <div><img class="first-background" src="../Media/first-background.png" alt="Background image"></div>
+  
+  <!-- Start of Header -->
   <header>
     <nav class="NavBar">
       <div class="nav-container">
-      <a href="Welcom2.html#welcome-page" class="logo">
-        <img src="../Media/fur-logo-.png" alt="FurTail logo">
-      </a>
-    
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact us</a></li>
-          <button class="in"><a href="#">SignIn</a></button>
-          <button class="up"><a href="#">SignUp</a></button>
-        </ul>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        
+        <div class="logo-div">
+          <a href="#welcome-page" class="logo">
+            <img src="../Media/fur-logo-.png" alt="FurTail logo">
+          </a>
+        </div>
+
+        <div class="list-item">
+          <ul class="nav-list" id="navList">
+            <li><a class="text-list" href="../HTML/HomePage.html">Home</a></li>
+            <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
+            <li><a class="text-list" href="../HTML/HomePage.html#services">Services</a></li>
+            <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
+            <li class="nav-buttons">
+              <a href="../HTML/login.html#sign-in-container" class="btn in">SignIn</a>
+              <a href="../HTML/login.html#sign-up-container" class="btn up">SignUp</a>
+            </li>
+          </ul>
+        </div>
+
+        <label for="menuToggle" class="menu-icon-container">
+          <span class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </span>
+        </label>
+      </div>
     </nav>
-  </header>  
-  <!--End of header-->
+  </header>
+  <!-- End of Header -->
 
   <!--start of landing section-->
-    <section class="content">
-      <artical class="text">
-        <h1 class="anim">Welcome to Fu<span class="logo-letter-dark">rT</span>a<span class="logo-letter-light">i</span>l</h1>
-        <h4 class="anim">Because Every Tail Matters, <span class="yellow">Fed</span>, <span class="yellow">Groomed</span>, and Loved!</h4>
-        <p class="anim">Join us today to explore our features.</p>
-      </artical>
-      <button class="start anim"><a href="#">Let's get started!</a></button>
-    </section>
+  <div class="content">
+    <h2 class="visually-hidden">Welcome to FurTail</h2>
+    <article class="text">
+      <h1 class="anim">Welcome to Fu<span class="logo-letter-dark">rT</span>a<span class="logo-letter-light">i</span>l</h1>
+      <h4 class="anim">Because Every Tail Matters, <span class="yellow">Fed</span>, <span class="yellow">Groomed</span>, and Loved!</h4>
+      <p class="anim">Join us today to explore our features.</p>
+    </article>
+    <a href="#container-2" class="start anim btn">Let's get started!</a>
+  </div>
   <!-- end of landing section-->
-      </div> <!--  end of THE container-->
-
+</div> <!-- end of THE container-->
 
 <!-- start of section 2 -->
-<div class="The-container-2">
-  <div class="dogShose"> <img src="../Media/background-2-3.png"></div>
-      <section class="content-2">
-        <article class="text-2">
-          <h1 class="anim">Why trust Fu<span class="logo-letter-dark">rT</span>a<span class="logo-letter-light">i</span>l?</h1>
-          <p class="anim">Our experienced team provides personalized care for your <span class="logo-letter-dark">Cats</span> and <span class="logo-letter-light">Dogs</span>,<br> ensuring that their needs are met with professionalism and love.<br> From quality ingredients in our <span class="yellow">meals</span> to gentle, caring <span class="yellow">grooming</span> sessions, <br>we’re here to keep your pets happy and healthy.”</p>
-        </article>
-      </section>
-    </div>
+<div class="The-container-2" id="container-2">
+  <div class="dogShose"><img src="../Media/background-2-3.png" alt="Dog and shoes illustration"></div>
+  <section class="content-2">
+    <h2 class="visually-hidden">Why trust FurTail</h2>
+    <article class="text-2">
+      <h2 class="anim">Why trust Fu<span class="logo-letter-dark">rT</span>a<span class="logo-letter-light">i</span>l?</h2>
+      <p class="anim">Our experienced team provides personalized care for your <span class="logo-letter-dark">Cats</span> and <span class="logo-letter-light">Dogs</span>,
+         ensuring that their needs are met with professionalism and love. From quality ingredients in our <span class="yellow">meals</span> to gentle, caring <span class="yellow">grooming</span> sessions, we're here to keep your pets happy and healthy.</p>
+    </article>
+  </section>
+</div>
 <!-- end of section 2 -->
 
 <!-- start of section 3 -->
 <div class="The-container-3">
-
-  <div class="catChair"><img src="../Media/catchair.png"></div>
-    <section class="content-3">
-      <article class="text-3">
-        <h1>Need some <span class="pet-word-color">pet</span>Care advice?</h1>
-        <div class="tip1">
-          <h3>Grooming</h3>
-          <p>Regular brushing keeps fur healthy;<br> trim dog nails for comfort</p>
+  <section class="content-3">
+    <h2 class="visually-hidden">Pet care advice</h2>
+    <article class="text-3">
+      <h2>Need some <span class="pet-word-color">pet</span>Care advice?</h2>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Grooming</h3>
+            <p>Regular brushing keeps fur healthy; trim dog nails for comfort</p>
+          </div>
         </div>
-
-        <div class="tip2">
-          <h3>Feeding</h3>
-          <p>Provide balanced, high-quality meals<br> suited to age and breed</p>
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Feeding</h3>
+            <p>Provide balanced, high-quality meals suited to age and breed</p>
+          </div>
         </div>
-
-        <div class="tip3">
-          <h3>Hydration</h3>
-          <p>Ensure fresh water is always available,<br>  especially in warm weather</p>
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Hydration</h3>
+            <p>Ensure fresh water is always available, especially in warm weather</p>
+          </div>
         </div>
-
-        <div class="tip4">
-          <h3>Exercise</h3>
-          <p>Playtime keeps pets active <br> engaged and healthy</p>
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Exercise</h3>
+            <p>Playtime keeps pets active and engaged and healthy</p>
+          </div>
         </div>
-
-        <div class="tip5">
-          <h3>Vet Checkups</h3>
-          <p>Regular visits help catch health issues<br>  early and keep vaccinations up to date</p>
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Vet Checkups</h3>
+            <p>Regular visits help catch health issues early and keep vaccinations up to date</p>
+          </div>
         </div>
-
-        <div class="tip6">
-          <h3>Comfort & Rest</h3>
-          <p>Provide a cozy sleeping area where<br> your petfeels safe and relaxed</p>
+        <div class="tip-item">
+          <div class="pet-mark"><img src="../Media/pet mark.png" alt="Pet care icon"></div>
+          <div class="tip-content">
+            <h3>Comfort & Rest</h3>
+            <p>Provide a cozy sleeping area where your pet feels safe and relaxed</p>
+          </div>
         </div>
-
-      </article>
-    </section>
-
-</div>
-
-
-
-  <!-- start of footer-->
-  <footer class="footer">
-    <div class="container">
-      <img src="../Media/fur-logo-.png" alt="logo">
-      <p class="text">WE ARE SOCIAL</p>
-      <div class="social-icons">
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
       </div>
-      <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+    </article>
+  </section>
+</div>
+<!-- end of section 3 -->
+
+<!-- start of footer-->
+<footer class="footer">
+  <div class="container">
+    <img src="../Media/fur-logo-.png" alt="FurTail logo">
+    <p class="text">WE ARE SOCIAL</p>
+    <div class="social-icons">
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
     </div>
-  
-  </footer>
-    <!-- end of footer-->
+    <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+  </div>
+</footer>
+<!-- end of footer-->
 </body>
 </html>

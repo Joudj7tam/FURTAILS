@@ -14,6 +14,42 @@ body {
     color: #404040;
 }
 
+.back {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    margin-top: 10px;
+    padding: 7px 15px;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: white;
+    background: #9FCFD7;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 2px solid #9FCFD7;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 0 #9FCFD7;
+}
+
+.back a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.back:hover {
+    color: #9FCFD7;
+    box-shadow: inset 0 -100px 0 0 #dff5f9;
+}
+
+.back:active {
+    transform: scale(0.95);
+}
+
 .container {
     min-width: 100%;
     background: linear-gradient(135deg, #E5CDDD, #ffffff);
@@ -31,14 +67,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 90%;
+    max-height: 90%;
     max-width: 90%;
     background-color: white;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     grid-row: 1 / 3;
     padding: 20px;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.7s ease-in-out;
 }
 
 .petPic {
@@ -83,47 +119,65 @@ body {
     font-weight: 500;
 }
 
-.pet-info .editable-field {
+.pet-info input,
+.pet-info select {
     display: inline-block;
     width: 250px;
     padding: 4px;
+    margin-bottom: 15px;
     color: rgb(150, 150, 150);
+    border: none;
     border-bottom: 1px solid #b5cfd4;
-    /* Bottom border */
     outline: none;
-    /* Remove outline */
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     transition: border-color 0.3s ease;
+    font-family: "Merienda", serif;
 }
 
-.pet-info .editable-field:focus {
-    border-bottom: 2px solid #9FCFD7;
-    /* Highlight on focus */
-}
-
-.pet-info .editable-field[contenteditable="true"] {
+.pet-info input[readonly],
+.pet-info select[disabled] {
     color: #333;
-    /* Darker text when editable */
-    border-bottom: 2px solid #9FCFD7;
-    /* Highlight when editable */
+    border-bottom: 1px solid #b5cfd4;
 }
+
+.pet-info input:focus {
+    border-bottom: 2px solid #9FCFD7;
+}
+
+/*.pet-info .editable-field[contenteditable="true"] {
+    color: #333;
+    border-bottom: 2px solid #9FCFD7;
+}*/
 
 #editButton {
-    padding: 10px 20px;
-    background-color: #9FCFD7;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    position: relative;
+    font-family: "Merienda", serif;
+    display: inline-block;
+    margin: 0;
+    margin-top: 10px;
+    padding: 7px 15px;
+    text-align: center;
     font-size: 18px;
-    margin-top: 30px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: white;
+    background: #9FCFD7;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 2px solid #9FCFD7;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #9FCFD7;
+    font-size: medium;
 }
 
 #editButton:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #7ac9d7;
-    animation: buttonAnimation 0.5s ease forwards;
+    color: #9FCFD7;
+    box-shadow: inset 0 -100px 0 0 #dff5f9;
+}
+
+#editButton:active {
+    transform: scale(0.95);
 }
 
 @keyframes buttonAnimation {
@@ -142,15 +196,16 @@ body {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     padding: 20px;
-    height: 230px;
+    max-height: 270px;
+    margin: 0px;
 }
 
 .feeding-history-container {
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .grooming-history-container {
-    animation: fadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.9s ease-in-out;
 }
 
 .feeding-history-container h2,
@@ -225,7 +280,8 @@ body {
 .order-number,
 .order-date,
 .order-status,
-.order-info {
+.order-info,
+.show-info-popup {
     flex: 1;
     text-align: center;
 }
@@ -242,10 +298,9 @@ body {
     box-shadow: 0 0 0 0.5px gray;
 }
 
-/* Modal Styles */
+/* Receipt Styles */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -254,7 +309,10 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Semi-transparent background */
+}
+
+.modal:target {
+    display: block;
 }
 
 .modal-content {
@@ -268,7 +326,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-in-out;
     font-family: 'Courier New', Courier, monospace;
-    /* Monospace font for receipt-like look */
     border: 7px solid #9FCFD7;
 }
 
@@ -278,6 +335,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .close:hover {
@@ -318,15 +376,63 @@ body {
     margin: 0;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal:target {
+    display: block;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Courier New', Courier, monospace;
+    border: 7px solid #9FCFD7;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close:hover {
+    color: black;
+}
+
 .receipt-info ul li {
     padding: 5px 0;
     border-bottom: 1px dotted #E5CDDD;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.receipt-info ul li:last-child {
-    border-bottom: none;
+.receipt-info ul li span {
+    display: inline-block;
 }
 
 .receipt-info .total {
@@ -334,6 +440,13 @@ body {
     margin-top: 20px;
     border-top: 2px solid #E5CDDD;
     padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-info .total strong {
+    margin-right: 10px;
 }
 
 @keyframes fadeIn {
@@ -348,7 +461,7 @@ body {
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1300px) {
     .container {
         grid-template-columns: 100%;
         height: 100%;
@@ -356,16 +469,17 @@ body {
 
     .information-container,
     .feeding-history-container,
-    .grooming-history-container{
+    .grooming-history-container {
         margin-left: 30px;
         margin-right: 30px;
     }
 }
 
 @media (max-width: 450px) {
+
     .information-container,
     .feeding-history-container,
-    .grooming-history-container{
+    .grooming-history-container {
         position: relative;
         left: 30px;
     }
