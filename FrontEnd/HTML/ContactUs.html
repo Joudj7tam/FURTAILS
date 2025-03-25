@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <title>Contact Us</title>
   <link rel="icon" type="image/png" href="../../FrontEnd/Media/title.png">
-  <link rel="stylesheet" href="/FURTAILS/FrontEnd/Css/ContactUs.css" />
+  <link rel="stylesheet" href="/FURTAILS/FrontEnd/Css/ContactUs.css">
 </head>
 <body>
-
+    <nav class="NavBar">
+        <div class="nav-container">
+          <input type="checkbox" id="menuToggle" class="menu-toggle">
+          
+          <div class="logo-div">
+            <a href="../HTML/Welcome2.html" class="logo">
+              <img src="../Media/fur-logo-.png" alt="FurTail logo">
+            </a>
+          </div>
+  
+          <div class="list-item" id="navList">
+            <ul class="nav-list">
+              <li><a class="text-list" href="#">Home</a></li>
+              <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
+              <li><a class="text-list" href="#">Services</a></li>
+              <li><a class="text-list" href="#">Contact us</a></li>
+              <li class="nav-icons">
+                <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
+                  <i class="fas fa-user"></i>
+                </a>
+                <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="cart-count">0</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+  
+          <label for="menuToggle" class="menu-icon-container">
+            <span class="menu-icon">
+              <i class="fas fa-bars"></i>
+            </span>
+          </label>
+        </div>
+      </nav>
   <!-- ======================= HEADER SECTION======================== -->
   <header class="header">
     <div class="header-content">
-      <h1 class="header-title">
-        <div><span class="highlight-letter">W</span>e Don’t Bite</div>
-        <div>
-          <span class="highlight-letter">C</span>ontact
-          <span class="highlight-letter">U</span>s
-          <span class="highlight-letter">!</span>
+        <div class="header-title">
+          <h1>
+            <span class="highlight-letter">W</span>e Don’t Bite<br>
+            <span class="highlight-letter">C</span>ontact <span class="highlight-letter">U</span>s <span class="highlight-letter">!</span><span class="highlight-letter">!</span>
+          </h1>
         </div>
-      </h1>
-      
-    </div>
-    <img src="../../FrontEnd/Media/contactHeader.png" alt="Dog with headphones" class="dog-image" />
+      </div>      
+    <img src="../../FrontEnd/Media/contactHeader.png" alt="Dog with headphones" class="dog-image">
   </header>
 
   <!-- =======================CONTACT SECTION======================== -->
@@ -35,20 +66,20 @@
 
       <!-- Email -->
       <div class="info-box">
-        <img src="../../FrontEnd/Media/email2.png" alt="Email Icon" />
+        <img src="../../FrontEnd/Media/email2.png" alt="Email Icon">
         <p>support@furtails.com</p>
       </div>
 
       <!-- Phone -->
       <div class="info-box">
-        <img src="../../FrontEnd/Media/telephone-call (1).png" alt="Phone Icon" />
+        <img src="../../FrontEnd/Media/telephone-call.png" alt="Phone Icon">
         <p>+123 456 7890</p>
       </div>
 
       <!-- Social Media Icons -->
       <div class="social-icons">
-        <a href="#"><img src="../../FrontEnd/Media/instagram.png" alt="Instagram" /></a>
-        <a href="#"><img src="../../FrontEnd/Media/tiktok.png" alt="TikTok" /></a>
+        <a href="#"><img src="../../FrontEnd/Media/instagram.png" alt="Instagram" ></a>
+        <a href="#"><img src="../../FrontEnd/Media/tiktok.png" alt="TikTok"></a>
       </div>
     </div>
 
@@ -61,11 +92,11 @@
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required />
+            <input type="text" id="first-name" name="first-name" required>
           </div>
           <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required />
+            <input type="text" id="last-name" name="last-name" required>
           </div>
         </div>
 
@@ -73,11 +104,12 @@
         <div class="form-row">
           <div class="form-group">
             <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" required />
+            <input type="date" id="dob" name="dob" required>
           </div>
           <div class="form-group">
             <label for="language">Preferred Language</label>
             <select id="language" name="language" required>
+              <option value="" disabled selected>Select a language</option>
               <option value="english">English</option>
               <option value="arabic">Arabic</option>
               <option value="french">French</option>
@@ -89,14 +121,14 @@
         <div class="form-group">
           <label>Gender</label>
           <div class="gender-container">
-            <input type="radio" id="male" name="gender" value="male" required />
+            <input type="radio" id="male" name="gender" value="male" required >
             <label for="male">
-              <img src=" ../../FrontEnd/Media/male.png" alt="Male Icon" /> Male
+              <img src=" ../../FrontEnd/Media/male.png" alt="Male Icon"> Male
             </label>
 
-            <input type="radio" id="female" name="gender" value="female" required />
+            <input type="radio" id="female" name="gender" value="female" required >
             <label for="female">
-              <img src=" ../../FrontEnd/Media/female.png" alt="Female Icon" /> Female
+              <img src=" ../../FrontEnd/Media/female.png" alt="Female Icon"> Female
             </label>
           </div>
         </div>
@@ -119,9 +151,9 @@
   <section class="team-section">
     <div class="hero">
       <!-- Decorative Cat Image -->
-      <img src=" ../../FrontEnd/Media/catContactUs.png" alt="Peeking Cat" class="peeking-cat" />
+      <img src=" ../../FrontEnd/Media/catContactUs.png" alt="Peeking Cat" class="peeking-cat">
       <h2>Meet Our Team</h2>
-      <p>We bring passion and innovation to everything we do! 🏆</p>
+      <p>We bring passion and innovation to everything we do! </p>
     </div>
 
     <!-- Team Members -->
@@ -130,7 +162,7 @@
       <div class="team-member">
         <h3>Dana Almoraie</h3>
         <a href="https://www.linkedin.com/in/dana-almoraie-775277247" target="_blank" class="linkedin-btn">
-          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn" /> Follow
+          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn"> Follow
         </a>
       </div>
 
@@ -138,7 +170,7 @@
       <div class="team-member">
         <h3>Joud Falatah</h3>
         <a href="https://www.linkedin.com/in/jood-falatah-88623a276?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="linkedin-btn">
-          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn" /> Follow
+          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn"> Follow
         </a>
       </div>
 
@@ -146,7 +178,7 @@
       <div class="team-member">
         <h3>Shahad Alghamdi</h3>
         <a href="https://www.linkedin.com/in/shahad-faisal-1872b5340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="linkedin-btn">
-          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn" /> Follow
+          <img src=" ../../FrontEnd/Media/linkedin.png" alt="LinkedIn"> Follow
         </a>
       </div>
     </div>
@@ -185,6 +217,18 @@
       </details>
     </div>
   </section>
-
+  <footer class="footer">
+    <div class="container">
+      <img src="../Media/fur-logo-.png" alt="logo">
+      <p class="text">WE ARE SOCIAL</p>
+      <div class="social-icons">
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
+      </div>
+      <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+    </div>
+  </footer>
 </body>
 </html>

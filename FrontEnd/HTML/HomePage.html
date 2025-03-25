@@ -6,8 +6,44 @@
   <title>Home Page</title>
   <link rel="icon" type="image/png" href="../../FrontEnd/Media/title.png">
   <link rel="stylesheet" href="/FURTAILS/FrontEnd/Css/HomePage.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <nav class="NavBar">
+    <div class="nav-container">
+      <input type="checkbox" id="menuToggle" class="menu-toggle">
+      
+      <div class="logo-div">
+        <a href="../HTML/Welcome2.html" class="logo">
+          <img src="../Media/fur-logo-.png" alt="FurTail logo">
+        </a>
+      </div>
+
+      <div class="list-item" id="navList">
+        <ul class="nav-list">
+          <li><a class="text-list" href="#">Home</a></li>
+          <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
+          <li><a class="text-list" href="#">Services</a></li>
+          <li><a class="text-list" href="#">Contact us</a></li>
+          <li class="nav-icons">
+            <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
+              <i class="fas fa-user"></i>
+            </a>
+            <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <label for="menuToggle" class="menu-icon-container">
+        <span class="menu-icon">
+          <i class="fas fa-bars"></i>
+        </span>
+      </label>
+    </div>
+  </nav>
   <!-- Header Section -->
   <div class="header-container">
     <header>
@@ -29,9 +65,9 @@
         <a href="#services" class="button-header">Discover Our Services</a>
       </div>
       <div class="header-image">
-        <img src=" ../../FrontEnd/Media/pet.png" alt="Pets" />
+        <img src=" ../../FrontEnd/Media/pet.png" alt="Pets">
         <div class="paw-background">
-          <img src="../../FrontEnd/Media/paws.png" alt="Paw Prints" />
+          <img src="../../FrontEnd/Media/paws.png" alt="Paw Prints">
         </div>
       </div>
     </header>
@@ -49,26 +85,32 @@
     <h2>Our Services</h2>
     <div class="services-container">
       <div class="service-card">
-        <a href=" ../../FrontEnd/Media/Grooming.html" class="card-link">
+        <a href="../../FrontEnd/HTML/Grooming.html" class="card-link">
           <h3>Grooming</h3>
-          <img src=" ../../FrontEnd/Media/grooming.jpeg" alt="Grooming Service" />
+          <img src="../../FrontEnd/Media/grooming.jpeg" alt="Grooming Service">
         </a>
       </div>
       <div class="service-card">
-        <h3>Pet Recipes</h3>
-        <img src=" ../../FrontEnd/Media/fooding.jpeg" alt="Pet Recipes" />
+        <a href="../../FrontEnd/HTML/feeding.html" class="card-link">
+          <h3>Pet Recipes</h3>
+          <img src="../../FrontEnd/Media/fooding.jpeg" alt="Pet Recipes">
+        </a>
       </div>
     </div>
   </section>
+  
 
   <!-- Pet Profile Section -->
   <section id="pet-profile">
     <h2>Discover Your Lovely Pets</h2>
     <div class="pet-profile">
-      <img src=" ../../FrontEnd/Media/simba.png" alt="Simba" />
-      <div class="pet-info">
-        <h3>Simba</h3>
-      </div>
+      <a href="../../FrontEnd/HTML/petProfile.html" class="pet-link">
+       <img src=" ../../FrontEnd/Media/simba.png" alt="Simba">
+       <div class="pet-info">
+         <h3>Simba</h3>
+       </div>
+      </a>
+
       <div class="add-pet-container">
         <a href="#add-pet-popup" class="Btn">
           <div class="sign">+</div>
@@ -85,17 +127,17 @@
     </div>
     <div class="features-icons">
       <div class="feature">
-        <img src=" ../../FrontEnd/Media/dogs.png" alt="Grooming" />
+        <img src=" ../../FrontEnd/Media/dogs.png" alt="Grooming">
         <h3>Professional Grooming</h3>
         <p>Keep your pets clean and happy with expert grooming services.</p>
       </div>
       <div class="feature">
-        <img src=" ../../FrontEnd/Media/food.png" alt="Food" />
+        <img src=" ../../FrontEnd/Media/food.png" alt="Food">
         <h3>Healthy Food Choices</h3>
         <p>Personalized diet plans to keep your pets strong and energetic.</p>
       </div>
       <div class="feature">
-        <img src=" ../../FrontEnd/Media/community.png" alt="Community" />
+        <img src=" ../../FrontEnd/Media/community.png" alt="Community">
         <h3>Pet Lovers Community</h3>
         <p>Connect with fellow pet lovers and share experiences.</p>
       </div>
@@ -109,16 +151,16 @@
   
       <form enctype="multipart/form-data">
         <label for="petPhoto">Pet Photo</label>
-        <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required />
+        <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required >
   
         <label for="petName">Pet Name</label>
-        <input type="text" id="petName" name="petName" required />
+        <input type="text" id="petName" name="petName" required >
   
         <label for="petBirth">Birth Date</label>
-        <input type="date" id="petBirth" name="petBirth" required />
+        <input type="date" id="petBirth" name="petBirth" required >
   
         <label for="petBreed">Breed / Style</label>
-        <input type="text" id="petBreed" name="petBreed" required />
+        <input type="text" id="petBreed" name="petBreed" required >
   
         <!-- Disease List -->
         <fieldset class="radio-list">
@@ -126,19 +168,19 @@
           <ul>
             <li>
               <label>
-                <input type="radio" name="disease" value="Obesity" required />
+                <input type="radio" name="disease" value="Obesity" required >
                 Obesity
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="disease" value="Kidney Disease" />
+                <input type="radio" name="disease" value="Kidney Disease" >
                 Kidney Disease
               </label>
             </li>
             <li>
               <label>
-                <input type="radio" name="disease" value="Diabetes" />
+                <input type="radio" name="disease" value="Diabetes" >
                 Diabetes
               </label>
             </li>
@@ -149,7 +191,19 @@
       </form>
     </div>
   </div>
-  
+  <footer class="footer">
+    <div class="container">
+      <img src="../Media/fur-logo-.png" alt="logo">
+      <p class="text">WE ARE SOCIAL</p>
+      <div class="social-icons">
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://LinkedIn.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://home.com" target="_blank"><i class="fa fa-home"></i></a>
+      </div>
+      <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
+    </div>
+  </footer>
 
 </body>
 </html>
