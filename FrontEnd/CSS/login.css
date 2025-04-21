@@ -287,6 +287,12 @@ body {
   height: 20px;
 }
 
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 /* Forgot Password Modal Styles */
 .modal {
   display: none;

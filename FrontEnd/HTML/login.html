@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="website icon" type="image/png" href="../../FrontEnd/Media/fur-logo-.png">
     <link rel="stylesheet" href="../CSS/login.css">
+    <script type="module" src="../JS/login.js"></script>
     <title>Login\Signin</title>
 </head>
 
@@ -23,19 +24,19 @@
                 </div>
                 <span>________________________Or________________________</span>
                 <div class="email-container">
-                    <input type="email" placeholder="example@gmail.com">
+                    <input type="email" placeholder="example@gmail.com" id="signup-email-input">
                     <img src="../Media/email.png" alt="email" class="email-icon" id="signup-email">
                 </div>
                 <div class="phone-container">
-                    <input type="tel" placeholder="Phone Number" pattern="[0-9]" maxlength="10">
+                    <input type="tel" placeholder="05XXXXXXXX" pattern="[0-9]{10}" maxlength="10" id="signup-phone-input">
                     <img src="../Media/phone.png" alt="phone" class="phone-icon" id="signup-phone">
                 </div>
                 <div class="password-container">
-                    <input type="password" id="signup-password" placeholder="Password">
+                    <input type="password" placeholder="Password" id="signup-password-input">
                     <img src="../Media/view.png" alt="view" class="eye-icon" id="signup-eye">
                 </div>
                 <div class="password-container">
-                    <input type="password" id="signup-confirm-password" placeholder="Confirm Password">
+                    <input type="password" placeholder="Confirm Password" id="signup-confirm-input">
                     <img src="../Media/view.png" alt="view" class="eye-icon" id="signup-confirm-eye">
                 </div>
                 <button type="submit">Sign Up</button>
@@ -51,11 +52,11 @@
                 </div>
                 <span>________________________Or________________________</span>
                 <div class="email-container">
-                    <input type="email" placeholder="example@gmail.com">
+                    <input type="email" placeholder="example@gmail.com" id="signin-email-input">
                     <img src="../Media/email.png" alt="email" class="email-icon" id="signin-email">
                 </div>
                 <div class="password-container">
-                    <input type="password" id="signin-password" placeholder="Password">
+                    <input type="password" id="signin-password-input" placeholder="Password">
                     <img src="../Media/view.png" alt="view" class="eye-icon" id="signin-eye">
                 </div>
                 <a href="#forgotPasswordModal">Forget Your Password?</a>
@@ -107,7 +108,6 @@
             <button class="mobile-toggle-btn" id="mobileSignUpBtn">Sign Up</button>
         </div>
     </div>
-    <script src="../JS/login.js"></script>
 
     <!-- Forgot Password Popup -->
     <div id="forgotPasswordModal" class="modal">
@@ -115,7 +115,7 @@
             <h1>Reset Password</h1>
             <form id="resetPasswordForm">
                 <div class="email-container">
-                    <input type="email" placeholder="Enter your email" required>
+                    <input type="email" placeholder="Enter your email" id="reset-email-input" required>
                     <img src="../Media/email.png" alt="email" class="email-icon">
                 </div>
                 <div class="password-container">
