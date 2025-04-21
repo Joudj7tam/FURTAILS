@@ -186,6 +186,8 @@ document.getElementById('signupForm').addEventListener('submit', async function 
         const data = await response.json();
 
         if (data.success) {
+            // Store email in localStorage
+            localStorage.setItem('email', email);
             // Successful sign up - redirect to home page
             window.location.href = "../HTML/HomePage.html";
         } else {
@@ -292,6 +294,8 @@ document.getElementById('signinForm').addEventListener('submit', async function 
         const data = await response.json();
 
         if (data.success) {
+            // Store email in localStorage
+            localStorage.setItem('email', email);
             // Successful sign in - redirect to home page
             window.location.href = "../HTML/HomePage.html";
         } else {
