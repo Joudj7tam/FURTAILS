@@ -6,34 +6,37 @@ import fs from 'fs';
 
 // @desc Add new fooding item (meal or treat)
 export const addFoodingItem = async (req, res) => {
-    const { type, name, condition, description, suggestedRecipe, ingredients, price } = req.body;
-  
-    try {
-      const newItem = new Fooding({
-        type,
-        name,
-        condition,
-        description,
-        suggestedRecipe,
-        ingredients,
-        price
-      });
-  
-      const savedItem = await newItem.save();
-  
-      res.status(201).json({
-        success: true,
-        message: "Item added successfully",
-        data: savedItem
-      });
-    } catch (error) {
-      res.status(400).json({
-        success: false,
-        message: "Failed to add item",
-        error: error.message
-      });
-    }
-  };
+  const { type, name, condition, description, suggestedRecipe, ingredients, price } = req.body;
+  const photo = req.file?.path || ""; // ✅ get file path from multer
+
+  try {
+    const newItem = new Fooding({
+      type,
+      name,
+      condition,
+      description,
+      suggestedRecipe,
+      ingredients: Array.isArray(ingredients) ? ingredients : [ingredients],
+      price,
+      photo
+    });
+
+    const savedItem = await newItem.save();
+
+    res.status(201).json({
+      success: true,
+      message: "Item added successfully",
+      data: savedItem
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Failed to add item",
+      error: error.message
+    });
+  }
+};
+
   
   
 // Get only MEAL products

@@ -94,8 +94,8 @@
     <!-- Contact Form (Right Side) -->
     <div class="contact-form">
       <h2>Send Us a Message</h2>
-      <!--EVERYTHING I THINK IT WORK BUT THE PROBLEM IS FROM MY DEVICE-->
-      <form id="contactForm" method="POST" action="http://localhost:5000/api/contact/add">
+      <div id="notification" class="hidden"></div>
+       <form id="contactForm" method="POST">
         <!-- Name Row -->
         <div class="form-row">
           <div class="form-group">
@@ -118,9 +118,9 @@
             <label for="language">Preferred Language</label>
             <select id="language" name="language" required>
               <option value="" disabled selected>Select a language</option>
-              <option value="english">English</option>
-              <option value="arabic">Arabic</option>
-              <option value="french">French</option>
+              <option value="English">English</option>
+              <option value="Arabic">Arabic</option>
+              <option value="French">French</option>              
             </select>
           </div>
         </div>
@@ -129,12 +129,12 @@
         <div class="form-group">
           <label>Gender</label>
           <div class="gender-container">
-            <input type="radio" id="male" name="gender" value="male" required >
+            <input type="radio" id="male" name="gender" value="Male">
             <label for="male">
               <img src=" ../../FrontEnd/Media/male.png" alt="Male Icon"> Male
             </label>
 
-            <input type="radio" id="female" name="gender" value="female" required >
+            <input type="radio" id="female" name="gender" value="Female">
             <label for="female">
               <img src=" ../../FrontEnd/Media/female.png" alt="Female Icon"> Female
             </label>
@@ -239,5 +239,7 @@
     </div>
   </footer>
   <script src="../JS/updateNavbar.js"></script>
+  <script src="../JS/contactForm.js"></script>
+
 </body>
 </html>

@@ -1,29 +1,30 @@
-import groomingModel from "../Models/groomingModel.js"; // ✅ lowercase
+import groomingModel from "../models/groomingModel.js"; // ✅ lowercase
 import fs from 'fs'
 
 
 export const addGroomingService = async (req, res) => {
-  const { name, description, price, photo } = req.body;
+  const { name, description, price } = req.body;
+  const photo = req.file?.path;
 
   try {
     const newService = new groomingModel({
       name,
-      description, // should be an array of strings
+      description: Array.isArray(description) ? description : [description], // just in case
       price,
-      photo // this can be "spa.jpeg", etc.
+      photo,
     });
 
     const savedService = await newService.save();
     res.status(201).json({
       success: true,
       message: "Grooming service added successfully",
-      data: savedService
+      data: savedService,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
       message: "Failed to add grooming service",
-      error: error.message
+      error: error.message,
     });
   }
 };

@@ -15,7 +15,7 @@ const addContactMessage = async (req,res) => {
         await contact.save();
         res.json({success:true, message:"Contact Message Added"})
     } catch (error) {
-        res.json({success:false, message:"Error"})
+        res.json({success:false, message:error.message})
     }
 }
 
