@@ -3,12 +3,12 @@ import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
   // Full Name
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  firstName: { type: String },
+  lastName: { type: String },
 
   // Login Info
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  email: { type: String, unique: true },
+  password: { type: String},
 
   // Account Info
   contactMethod: { type: String, enum: ['Email', 'Phone'], default: 'Email' },
@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
   location: { type: String },
 
   // Language, DOB 
-  DOB: { type: Date, required: true },
-  language: { type: String, enum: ['English', 'Arabic', 'French'], required: true },
+  DOB: { type: Date },
+  language: { type: String, enum: ['English', 'Arabic', 'French']},
 
   // Pet list (will be populated later)
   pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
@@ -28,10 +28,9 @@ const userSchema = new mongoose.Schema({
   // Cart items (storing product details like productId, quantity, etc.)
   cart: [
     {
-      productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-      quantity: { type: Number, required: true },
-      price: { type: Number, required: true },
-    },
+      serviceId: { type: mongoose.Schema.Types.ObjectId, ref: 'Grooming' },
+      quantity: { type: Number, required: true, default: 1 }
+    }
   ],
 });
 

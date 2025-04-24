@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const email = localStorage.getItem('email');
+  updateNavbar();
+  const email = localStorage.getItem('email');
     const navUser = document.getElementById('nav-user');
     const usernameDisplay = document.getElementById('usernameDisplay');
     const navAuth = document.getElementById('nav-auth');
@@ -18,6 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.removeItem('userId');
     localStorage.removeItem('email');
     window.location.href = "../HTML/Welcome2.html"; // or login page
+  }
+
+  function updateNavbar() {
+    const userEmail = localStorage.getItem('email') || sessionStorage.getItem('email');
+    const navUser = document.getElementById('nav-user');
+  
+    if (userEmail) {
+      navUser.style.display = 'block';
+      document.getElementById('usernameDisplay').textContent = userEmail.split('@')[0];
+    } else {
+      navUser.style.display = 'none';
+    }
   }
   
   
