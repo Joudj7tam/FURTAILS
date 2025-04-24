@@ -43,115 +43,52 @@
             </div>
             <button id="editButton"><i class="fas fa-save"></i> Save Changes</button>
         </div>
-
-        <!-- Feeding History Container -->
-        <div class="feeding-history-container">
-            <h2>Feeding History</h2>
+        <div class="history-container">
+            <h2>Service History</h2>
             <div class="orders-container">
-                <div class="order-header">
-                    <span>Number</span>
-                    <span>Date</span>
-                    <span>Status</span>
-                    <span>Info</span>
+              <div class="order-header">
+                <span>Number</span>
+                <span>Date</span>
+                <span>Status</span>
+                <span>Info</span>
+              </div>
+          
+              <!-- Example Orders -->
+              <div class="order">
+                <span class="order-number">1</span>
+                <span class="order-date">2023-10-01</span>
+                <span class="order-status">Completed</span>
+                <div class="show-info-popup">
+                  <a href="#orderInfoModal">
+                    <span class="order-info"><img src="../Media/info.png" alt="info" /></span>
+                  </a>
                 </div>
-                <div class="order">
-                    <span class="order-number">1</span>
-                    <span class="order-date">2023-10-01</span>
-                    <span class="order-status">Completed</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
+              </div>
+          
+              <div class="order">
+                <span class="order-number">2</span>
+                <span class="order-date">2023-09-28</span>
+                <span class="order-status">Pending</span>
+                <div class="show-info-popup">
+                  <a href="#orderInfoModal">
+                    <span class="order-info"><img src="../Media/info.png" alt="info" /></span>
+                  </a>
                 </div>
-                <div class="order">
-                    <span class="order-number">2</span>
-                    <span class="order-date">2023-09-28</span>
-                    <span class="order-status">Pending</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="order">
-                    <span class="order-number">3</span>
-                    <span class="order-date">2023-10-01</span>
-                    <span class="order-status">Completed</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="order">
-                    <span class="order-number">4</span>
-                    <span class="order-date">2023-09-28</span>
-                    <span class="order-status">Pending</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Add more orders here -->
-            </div>
+              </div>
+              
+    <div class="order">
+        <span class="order-number">3</span>
+        <span class="order-date">2023-10-01</span>
+        <span class="order-status">Completed</span>
+        <div class="show-info-popup">
+          <a href="#orderInfoModal">
+            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+          </a>
         </div>
-
-        <!-- Grooming History Container -->
-        <div class="grooming-history-container">
-            <h2>Grooming History</h2>
-            <div class="orders-container">
-                <div class="order-header">
-                    <span>Number</span>
-                    <span>Date</span>
-                    <span>Status</span>
-                    <span>Info</span>
-                </div>
-                <div class="order">
-                    <span class="order-number">1</span>
-                    <span class="order-date">2023-10-01</span>
-                    <span class="order-status">Completed</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="order">
-                    <span class="order-number">2</span>
-                    <span class="order-date">2023-09-28</span>
-                    <span class="order-status">Pending</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="order">
-                    <span class="order-number">3</span>
-                    <span class="order-date">2023-10-01</span>
-                    <span class="order-status">Completed</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="order">
-                    <span class="order-number">4</span>
-                    <span class="order-date">2023-09-28</span>
-                    <span class="order-status">Pending</span>
-                    <div class="show-info-popup">
-                        <a href="#orderInfoModal">
-                            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Add more orders here -->
+      </div>
             </div>
-        </div>
-
+          </div>
+          
         <!-- Pop-up Modal -->
         <!-- Pop-up Modal -->
         <div id="orderInfoModal" class="modal">
