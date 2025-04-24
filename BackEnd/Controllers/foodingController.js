@@ -1,4 +1,4 @@
-import Fooding from "../Models/foodModel"; // use this exact name!
+import Fooding from "../Models/foodModel.js"; // use this exact name!
 import fs from 'fs';
 
 
