@@ -28,10 +28,18 @@
             <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
             <li><a class="text-list" href="../HTML/HomePage.html#services">Services</a></li>
             <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
+            <li class="nav-user" id="nav-user" style="display: none; position: relative;">
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
+                </button>
+                <div class="dropdown-content">
+                  <a href="../HTML/userProfile.html">My Profile</a>
+                  <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+                </div>
+              </div>
+            </li>  
             <li class="nav-icons">
-              <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
-                <i class="fas fa-user"></i>
-              </a>
               <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-count">0</span>
@@ -212,5 +220,6 @@
       </div>
     </footer>
   </div>
+  <script src="../JS/updateNavbar.js"></script>
 </body>
 </html>

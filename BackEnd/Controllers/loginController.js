@@ -1,4 +1,4 @@
-import loginModel from "../Models/loginModel.js";
+import loginModel from "../models/loginModel.js";
 import bcrypt from "bcrypt";
 import validator from "validator";
 
@@ -62,8 +62,9 @@ const signIn = async (req, res) => {
         if (!isMatch){
            return res.json({success: false, message:"Invalid password"})
         }
-
-        res.json({success: true, message: "User sign in successfully"})
+        
+        
+       res.json({success: true, message: "User sign in successfully", user})
 
     } catch (error) {
         console.log(error);

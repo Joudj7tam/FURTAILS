@@ -82,8 +82,6 @@ header {
 
 .header-content {
     max-width: 50%;
-   
-    
 }
 
 
@@ -857,6 +855,7 @@ padding-right: 70px;
     width: 100%;
   }
 }
+
 .NavBar {
   position: fixed;
   top: 0;
@@ -983,6 +982,34 @@ padding-right: 70px;
   font-size: 28px;
   color: #333;
   transition: all 0.3s ease;
+}*/
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Separate left, center, right areas */
+.nav-left {
+  flex: 1;
+}
+
+.nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
 /* ===== MOBILE STYLES ===== */
@@ -1171,4 +1198,77 @@ padding-right: 70px;
   .footer .copyright {
     font-size: 0.6875rem; /* 11px */
   }
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f2f2f2;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.pet-image-wrapper {
+  position: relative;
+  width: 120px; /* Set fixed width */
+  height: 120px; /* Set fixed height */
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.pet-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop nicely */
+  border-radius: 12px;
+  display: block;
+}
+
+.pet-name-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color:#DB8C87;
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

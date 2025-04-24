@@ -25,10 +25,17 @@
               <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
               <li><a class="text-list" href="../HTML/HomePage.html">Services</a></li>
               <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
-              <li class="nav-icons">
-                <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
-                  <i class="fas fa-user"></i>
-                </a>
+              <li class="nav-user" id="nav-user" style="display: none; position: relative;">
+                <div class="dropdown">
+                  <button class="dropbtn">
+                    <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="../HTML/userProfile.html">My Profile</a>
+                    <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+                  </div>
+                </div>
+              </li>  
                 <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
                   <i class="fas fa-shopping-cart"></i>
                   <span class="cart-count">0</span>
@@ -87,17 +94,17 @@
     <!-- Contact Form (Right Side) -->
     <div class="contact-form">
       <h2>Send Us a Message</h2>
-
-      <form>
+      <!--EVERYTHING I THINK IT WORK BUT THE PROBLEM IS FROM MY DEVICE-->
+      <form id="contactForm" method="POST" action="http://localhost:5000/api/contact/add">
         <!-- Name Row -->
         <div class="form-row">
           <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" required>
+            <input type="text" id="firstName" name="firstName" required>
           </div>
           <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" required>
+            <input type="text" id="lastName" name="lastName" required>
           </div>
         </div>
 
@@ -105,7 +112,7 @@
         <div class="form-row">
           <div class="form-group">
             <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" required>
+            <input type="date" id="DOB" name="DOB" required>
           </div>
           <div class="form-group">
             <label for="language">Preferred Language</label>
@@ -231,5 +238,6 @@
       <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
     </div>
   </footer>
+  <script src="../JS/updateNavbar.js"></script>
 </body>
 </html>
