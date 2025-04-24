@@ -1012,3 +1012,24 @@ details[open] summary .faq-icon {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+#notification {
+  background-color: #e0ffe0;
+  border: 1px solid #4CAF50;
+  color: #2e7d32;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+}
+
+#notification.error {
+  background-color: #ffe0e0;
+  border-color: #f44336;
+  color: #c62828;
+}
+
+#notification.show {
+  display: block;
+}

@@ -25,6 +25,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads")); // Serve uploaded images
+app.use('/uploads/grooming', express.static('uploads/grooming'));
 
 // API routes
 app.use("/api/contact", contactRouter);

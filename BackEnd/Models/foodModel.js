@@ -31,7 +31,11 @@ const foodingSchema = new mongoose.Schema({
       type: Number,
       required: true,
       min: 0
-    }
+    },
+    photo: {
+      type: String,
+      default: ''
+    }    
   });
 
 const Fooding = mongoose.model("Fooding", foodingSchema);
