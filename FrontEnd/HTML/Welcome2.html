@@ -32,10 +32,27 @@
             <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
             <li><a class="text-list" href="../HTML/HomePage.html#services">Services</a></li>
             <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
-            <li class="nav-buttons">
+           <!-- <li class="nav-buttons">
+              <a href="../HTML/login.html#sign-in-container" class="btn in">SignIn</a>
+              <a href="../HTML/login.html#sign-up-container" class="btn up">SignUp</a>
+            </li>-->
+           
+            <li class="nav-buttons" id="nav-auth">
               <a href="../HTML/login.html#sign-in-container" class="btn in">SignIn</a>
               <a href="../HTML/login.html#sign-up-container" class="btn up">SignUp</a>
             </li>
+            <li class="nav-user" id="nav-user" style="display: none; position: relative;">
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
+                </button>
+                <div class="dropdown-content">
+                  <a href="../HTML/userProfile.html">My Profile</a>
+                  <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+                </div>
+              </div>
+            </li>   
+          
           </ul>
         </div>
 
@@ -146,5 +163,6 @@
   </div>
 </footer>
 <!-- end of footer-->
+<script src="../JS/updateNavbar.js"></script>
 </body>
 </html>

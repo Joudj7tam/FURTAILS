@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <nav class="NavBar">
+ <nav class="NavBar">
     <div class="nav-container">
       <input type="checkbox" id="menuToggle" class="menu-toggle">
       
@@ -25,17 +25,28 @@
           <li><a class="text-list" href="../HTML/aboutUs.html">About us</a></li>
           <li><a class="text-list" href="#services">Services</a></li>
           <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
+          <li class="nav-user" id="nav-user" style="display: none; position: relative;">
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
+              </button>
+              <div class="dropdown-content">
+                <a href="../HTML/userProfile.html">My Profile</a>
+                <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+              </div> 
+            </div>
+          </li>   
+          </li>
+        </ul>
+      </div>
+
+
           <li class="nav-icons">
-            <a href="../HTML/userProfile.html" class="icon-link" aria-label="User Profile">
-              <i class="fas fa-user"></i>
-            </a>
             <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
               <i class="fas fa-shopping-cart"></i>
               <span class="cart-count">0</span>
             </a>
-          </li>
-        </ul>
-      </div>
+      
 
       <label for="menuToggle" class="menu-icon-container">
         <span class="menu-icon">
@@ -44,6 +55,8 @@
       </label>
     </div>
   </nav>
+  
+  
   <!-- Header Section -->
   <div class="header-container">
     <header>
@@ -100,7 +113,7 @@
   </section>
   
 
-  <!-- Pet Profile Section -->
+  <!-- Pet Profile Section 
   <section id="pet-profile">
     <h2>Discover Your Lovely Pets</h2>
     <div class="pet-profile">
@@ -118,8 +131,19 @@
         </a>
       </div>
     </div>
-  </section>
+  </section>-->
 
+<section id="pet-profile">
+  <h2>Discover Your Lovely Pets</h2>
+  <div class="pet-profile" id="petList">
+    <div class="add-pet-container">
+      <a href="#add-pet-popup" class="Btn">
+        <div class="sign">+</div>
+        <div class="text">Add Pet</div>
+      </a>
+    </div>
+  </div>
+</section>
   <!-- Features Section -->
   <section id="features">
     <div class="features-header">
@@ -149,46 +173,34 @@
       <a href="#" class="close-btn">&times;</a>
       <h2>Add New Pet</h2>
   
-      <form enctype="multipart/form-data">
+      <form id="addPetForm" enctype="multipart/form-data" method="POST" action="http://localhost:5000/api/pets/add">
         <label for="petPhoto">Pet Photo</label>
-        <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required >
-  
+        <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required>
+      
         <label for="petName">Pet Name</label>
-        <input type="text" id="petName" name="petName" required >
-  
+        <input type="text" id="petName" name="name" required>
+      
+        <label for="petType">Pet Type</label>
+        <input type="text" id="petType" name="type" required> <!-- NEW FIELD -->
+      
         <label for="petBirth">Birth Date</label>
-        <input type="date" id="petBirth" name="petBirth" required >
-  
+        <input type="date" id="petBirth" name="birthDate" required> <!-- we’ll use JS to convert to age -->
+      
         <label for="petBreed">Breed / Style</label>
-        <input type="text" id="petBreed" name="petBreed" required >
-  
-        <!-- Disease List -->
+        <input type="text" id="petBreed" name="breed" required>
+      
         <fieldset class="radio-list">
           <legend>Disease</legend>
           <ul>
-            <li>
-              <label>
-                <input type="radio" name="disease" value="Obesity" required >
-                Obesity
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="disease" value="Kidney Disease" >
-                Kidney Disease
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="disease" value="Diabetes" >
-                Diabetes
-              </label>
-            </li>
+            <li><label><input type="radio" name="disease" value="Obesity" required> Obesity</label></li>
+            <li><label><input type="radio" name="disease" value="Kidney Disease"> Kidney Disease</label></li>
+            <li><label><input type="radio" name="disease" value="Diabetes"> Diabetes</label></li>
           </ul>
         </fieldset>
-  
+      
         <button type="submit" class="button-header">Add Pet</button>
       </form>
+      
     </div>
   </div>
   <footer class="footer">
@@ -204,6 +216,9 @@
       <p class="copyright">&copy; 2024 <span>FurTial</span> All Right Reserved</p>
     </div>
   </footer>
+  <script src="../JS/updateNavbar.js"></script>
+  <script src="../JS/addPet.js"></script>
+
 
 </body>
 </html>

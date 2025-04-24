@@ -293,9 +293,10 @@ document.getElementById('signinForm').addEventListener('submit', async function 
 
         const data = await response.json();
 
-        if (data.success) {
+        if (data.success && data.user )  {
             // Store email in localStorage
-            localStorage.setItem('email', email);
+             localStorage.setItem('email', email);
+             localStorage.setItem('userId', data.user._id); 
             // Successful sign in - redirect to home page
             window.location.href = "../HTML/HomePage.html";
         } else {

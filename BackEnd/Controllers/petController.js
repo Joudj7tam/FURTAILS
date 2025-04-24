@@ -1,25 +1,37 @@
 import Pet from "../models/Pet.js";
+import multer from 'multer';
+import path from 'path';
 
 // @desc    Add new pet (Test mode)
 const addPet = async (req, res) => {
   const { name, type, breed, age, owner } = req.body;
-
-  const pet = new Pet({ name, type, breed, age, owner });
+  const petPhoto = req.file?.filename ;
 
   try {
-    await pet.save();
+    const pet = new Pet({
+      name,
+      type,
+      breed,
+      age,
+      owner,
+      petPhoto 
+    });
+
+ await pet.save();
     res.json({ success: true, message: "Pet added", data: pet });
   } catch (error) {
-    res.status(400).json({ success: false, message: "Failed to add pet" });
+    console.error(error);
+    res.status(500).json({ success: false, message: "Failed to add pet" });
   }
 };
-
 // @desc    Get all pets of a specific user (Test mode)
 const getMyPets = async (req, res) => {
-  const { owner } = req.body;
+  //const { owner } = req.body;
+
+  const ownerId = req.params.ownerId;
 
   try {
-    const pets = await Pet.find({ owner });
+    const pets = await Pet.find({  owner: ownerId  });
     res.json({ success: true, data: pets });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to fetch pets' });
