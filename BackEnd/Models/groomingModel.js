@@ -15,7 +15,7 @@ const groomingSchema = new mongoose.Schema({
     },
     photo: {
       type: String, // Example: "shower.jpeg" or "/images/spa.jpeg"
-      required: false
+      
     }});
 
       const groomingModel = mongoose.models.Grooming || mongoose.model("Grooming", groomingSchema)
