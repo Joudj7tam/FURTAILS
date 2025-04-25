@@ -6,6 +6,7 @@ const addOrder = async (req,res) => {
     const order = new orderModel({
         firstName:req.body.firstName,
         lastName:req.body.lastName,
+        email:req.body.email,
         street:req.body.street,
         city:req.body.city,
         state:req.body.state,

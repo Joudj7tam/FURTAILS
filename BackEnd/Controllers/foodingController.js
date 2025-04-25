@@ -7,7 +7,7 @@ import fs from 'fs';
 // @desc Add new fooding item (meal or treat)
 export const addFoodingItem = async (req, res) => {
   const { type, name, condition, description, suggestedRecipe, ingredients, price } = req.body;
-  const photo = req.file?.path || ""; // ✅ get file path from multer
+  const photo = req.file ? `/uploads/${req.file.filename}` : "";
 
   try {
     const newItem = new Fooding({

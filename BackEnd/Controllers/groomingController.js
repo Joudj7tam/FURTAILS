@@ -1,10 +1,10 @@
-import groomingModel from "../models/groomingModel.js"; // ✅ lowercase
+import groomingModel from "../Models/groomingModel.js"; // ✅ lowercase
 import fs from 'fs'
 
 
 export const addGroomingService = async (req, res) => {
   const { name, description, price } = req.body;
-  const photo = req.file?.path;
+  const photo = req.file ? `/uploads/${req.file.filename}` : "";
 
   try {
     const newService = new groomingModel({

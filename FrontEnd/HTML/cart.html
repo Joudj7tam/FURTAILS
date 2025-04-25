@@ -31,17 +31,17 @@
                         <li><a class="text-list" href="../HTML/ContactUs.html">Contact us</a></li>
                         <li class="nav-user" id="nav-user" style="display: none; position: relative;">
                             <div class="dropdown">
-                              <button class="dropbtn">
-                                <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
-                              </button>
-                              <div class="dropdown-content">
-                                <a href="../HTML/userProfile.html">My Profile</a>
-                                <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+                                <button class="dropbtn">
+                                    <i class="fas fa-user"></i> Hi, <strong id="usernameDisplay"></strong> ▾
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="../HTML/userProfile.html">My Profile</a>
+                                    <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
+                                </div>
                             </div>
-                            </div>
-                          </li>   
+                        </li>
                         <li class="nav-icons">
-                           
+
                             <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
                                 <i class="fas fa-shopping-cart"></i>
                                 <span class="cart-count">0</span>
@@ -57,7 +57,7 @@
                 </label>
             </div>
         </nav>
-        
+
         <!-- Cart Left Side -->
         <div class="cart-left-side">
             <h2 class="visually-hidden">Cart Items</h2>
@@ -71,72 +71,50 @@
                 <div class="cart-header">Remove</div>
             </div>
 
-            <!-- Cart Items -->
-            <div class="cart-items-item">
-                <div class="cart-item-detail">
-                    <img src="../Media/kidney-Disease.png" alt="Item 1">
+            <!-- Cart Items Container -->
+            <div class="cart-items-container" id="cart-items-container">
+                <!-- <div class="cart-items-item">
+                    <div class="cart-item-detail">
+                        <img src="../Media/kidney-Disease.png" alt="Item 1">
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>Kidney Disease</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>$9.99</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>2</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>$19.98</p>
+                    </div>
+                    <div class="cart-item-detail cross">
+                        X
+                    </div>
                 </div>
-                <div class="cart-item-detail">
-                    <p>Kidney Disease</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$9.99</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>2</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$19.98</p>
-                </div>
-                <div class="cart-item-detail cross">
-                    X
-                </div>
-            </div>
 
-            <!-- Cart Items -->
-            <div class="cart-items-item">
-                <div class="cart-item-detail">
-                    <img src="../Media/3.jpg" alt="Item 1">
-                </div>
-                <div class="cart-item-detail">
-                    <p>Fere Pets</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$4.99</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>1</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$4.99</p>
-                </div>
-                <div class="cart-item-detail cross">
-                    X
-                </div>
+                 Cart Items 
+                <div class="cart-items-item">
+                    <div class="cart-item-detail">
+                        <img src="../Media/3.jpg" alt="Item 1">
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>Fere Pets</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>$4.99</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>1</p>
+                    </div>
+                    <div class="cart-item-detail">
+                        <p>$4.99</p>
+                    </div>
+                    <div class="cart-item-detail cross">
+                        X
+                    </div>-->
             </div>
-
-            <!-- Cart Items -->
-            <div class="cart-items-item">
-                <div class="cart-item-detail">
-                    <img src="../Media/fullgroom.jpeg" alt="Item 1">
-                </div>
-                <div class="cart-item-detail">
-                    <p>Full Groom</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$45</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>1</p>
-                </div>
-                <div class="cart-item-detail">
-                    <p>$45</p>
-                </div>
-                <div class="cart-item-detail cross">
-                    X
-                </div>
-            </div>
-
             <!-- Cart Empty State -->
             <div class="cart-empty">
                 <img src="../Media/empty.png" alt="Empty cart" class="empty-cart-image">
@@ -199,7 +177,7 @@
                 </div>
             </div>
             <div class="cart-totals-actions">
-                <button onclick="window.location.href='#completeOrderModal'">PROCEED TO CHECKOUT</button>
+                <button id="checkoutBtn">PROCEED TO CHECKOUT</button>
             </div>
         </div>
 
@@ -279,8 +257,8 @@
         </div>
     </footer>
     <!-- end of footer-->
-    <script src="../JS/updateNavbar.js"></script>   
-    <script src="../JS/cart.js"></script> 
+    <script src="../JS/updateNavbar.js"></script>
+    <script src="../JS/cart.js"></script>
 </body>
 
 

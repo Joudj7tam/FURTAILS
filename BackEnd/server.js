@@ -35,6 +35,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/pets", petRoutes);
 app.use("/api/fooding", foodingRoute); 
 app.use("/api/grooming", groomingRoute);
+app.use('/uploads', express.static('BackEnd/Uploads'));
+
 // Test route
 app.get("/", (req, res) => {
   res.send("API is running...");

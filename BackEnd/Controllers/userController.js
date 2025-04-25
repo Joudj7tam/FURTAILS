@@ -224,50 +224,87 @@ const removeFromCart = async (req, res) => {
 // Add this to userController.js
 const getCartByEmail = async (req, res) => {
   try {
-      const { email } = req.query;
-      
-      if (!email) {
-          return res.status(400).json({ success: false, message: "Email is required" });
-      }
+    const { email } = req.query;
+    
+    if (!email) {
+      return res.status(400).json({ success: false, message: "Email is required" });
+    }
 
-      const user = await User.findOne({ email })
-          .populate({
-              path: 'cart.serviceId',
-              model: 'Grooming'
-          })
-          .populate({
-              path: 'cart.serviceId',
-              model: 'Fooding'
-          });
+    // First get user with basic cart items
+    const user = await User.findOne({ email });
+    
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
 
-      if (!user) {
-          return res.status(404).json({ success: false, message: "User not found" });
-      }
+    // Process each cart item to get full details
+    const items = await Promise.all(
+      user.cart.map(async (cartItem) => {
+        try {
+          // Try to find as grooming service first
+          let service = await groomingModel.findById(cartItem.serviceId);
+          let type = 'grooming';
+          
+          // If not found as grooming, try as food item
+          if (!service) {
+            service = await Fooding.findById(cartItem.serviceId);
+            type = 'food';
+          }
 
-      const cartItems = user.cart
-          .filter(item => item.serviceId)
-          .map(item => ({
-              _id: item.serviceId._id,
-              name: item.serviceId.name,
-              price: item.serviceId.price,
-              quantity: item.quantity,
-              type: item.serviceType,
-              image: item.serviceId.photo || 'pet-grooming.png'
-          }));
+          // If service found in either collection
+          if (service) {
+            return {
+              _id: service._id,
+              name: service.name,
+              price: service.price,
+              quantity: cartItem.quantity,
+              type: type,
+              image: service.photo || '/uploads/default.png'
+            };
+          }
+          return null;
+        } catch (err) {
+          console.error(`Error processing cart item ${cartItem.serviceId}:`, err);
+          return null;
+        }
+      })
+    );
 
-      res.json({
-          success: true,
-          items: cartItems,
-          count: cartItems.reduce((total, item) => total + item.quantity, 0)
-      });
+    // Filter out any null items
+    const validItems = items.filter(item => item !== null);
+
+    res.json({
+      success: true,
+      items: validItems,
+      count: validItems.reduce((total, item) => total + item.quantity, 0)
+    });
   } catch (error) {
-      res.status(500).json({
-          success: false,
-          message: "Error fetching cart",
-          error: error.message
-      });
+    console.error("Error in getCartByEmail:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching cart",
+      error: error.message
+    });
+  }
+};
+
+const clearCart = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ success: false, message: "Email is required" });
+
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ success: false, message: "User not found" });
+
+    user.cart = [];
+    await user.save();
+
+    res.json({ success: true, message: "Cart cleared" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error clearing cart" });
   }
 };
 
 
-export { createUser, getUserProfile, updateUserProfile, addPetToUserProfile, addToCart, removeFromCart, getCartByEmail };
+
+export { createUser, getUserProfile, updateUserProfile, addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart };

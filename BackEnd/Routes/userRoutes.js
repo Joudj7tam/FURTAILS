@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUserProfile, updateUserProfile,createUser,addPetToUserProfile, addToCart, removeFromCart, getCartByEmail } from '../Controllers/userController.js';
+import { getUserProfile, updateUserProfile,createUser,addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart } from '../Controllers/userController.js';
 
 
 const router = express.Router();
@@ -11,6 +11,6 @@ router.post("/addPet", addPetToUserProfile);
 router.post("/addToCart", addToCart);
 router.post("/removeFromCart", removeFromCart);
 router.get('/cart-by-email', getCartByEmail);
-
+router.post('/clearCart', clearCart);
 
 export default router;
