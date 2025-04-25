@@ -2,29 +2,19 @@ import User from "../Models/User.js";
 import groomingModel from "../Models/groomingModel.js";
 import Fooding from "../Models/foodModel.js";
 
-// @desc    Add new user
+//create new user
 const createUser = async (req, res) => {
   try {
     const {
-      firstName,
-      lastName,
       email,
-      phone,
-      password,
-      username,
-      preferredContact,
-      location
+      phoneNum, 
+      password
     } = req.body;
 
     const user = new User({
-      firstName,
-      lastName,
       email,
-      phone,
+      phoneNumber: phoneNum,
       password,
-      username,
-      preferredContact,
-      location,
       memberSince: new Date()
     });
 
@@ -36,6 +26,7 @@ const createUser = async (req, res) => {
     res.status(400).json({ success: false, message: "Failed to create user" });
   }
 };
+
 
 // @desc    Get user's profile by email with populated pets list
 const getUserProfile = async (req, res) => {

@@ -2,28 +2,28 @@ import loginModel from "../models/loginModel.js";
 import bcrypt from "bcrypt";
 import validator from "validator";
 
-const signUp = async (req, res) => {
-    const {email, phoneNum, password} = req.body;
+const signUp = async (req, res, next) => {
+    const { email, phoneNum, password } = req.body;
     try {
         //check is the user already exists
-        const exists = await loginModel.findOne({email});
-        if(exists){
-            return res.json({success: false, message:"User already exists"})
+        const exists = await loginModel.findOne({ email });
+        if (exists) {
+            return res.json({ success: false, message: "User already exists" })
         }
 
         // validating email format & strong password
-        if(!validator.isEmail(email)){
-            return res.json({success: false, message:"Please enter a valid email"})
+        if (!validator.isEmail(email)) {
+            return res.json({ success: false, message: "Please enter a valid email" })
         }
 
-        if(password.length<8){
-            return res.json({success: false, message:"Please enter a strong password"})
+        if (password.length < 8) {
+            return res.json({ success: false, message: "Please enter a strong password" })
         }
 
         // validating phone number format
-        const phoneRegex = /^05\d{8}$/; 
-        if(!phoneRegex.test(phoneNum)) {
-            return res.json({success: false, message:"Phone number must be 10 digits starting with 05"})
+        const phoneRegex = /^05\d{8}$/;
+        if (!phoneRegex.test(phoneNum)) {
+            return res.json({ success: false, message: "Phone number must be 10 digits starting with 05" })
         }
 
         // hashing user password
@@ -37,38 +37,41 @@ const signUp = async (req, res) => {
         })
 
         const user = await newLogin.save()
-        res.json({ success: true, message: "Account created successfully" });
 
-        
+        // Pass email, phone, and password to the next middleware
+        req.body.phoneNumber = phoneNum;
+
+        next(); // Call createUser next
+
     } catch (error) {
         console.log(error);
-        res.json({success: false, message:"Error"})
+        res.json({ success: false, message: "Error" })
     }
 }
 
 const signIn = async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
     try {
         //check if email exist
-        const user = await loginModel.findOne({email})
+        const user = await loginModel.findOne({ email })
 
-        if (!user){
-           return res.json({success: false, message:"User doesn't exist"})
+        if (!user) {
+            return res.json({ success: false, message: "User doesn't exist" })
         }
 
         //check if password match
         const isMatch = await bcrypt.compare(password, user.password);
 
-        if (!isMatch){
-           return res.json({success: false, message:"Invalid password"})
+        if (!isMatch) {
+            return res.json({ success: false, message: "Invalid password" })
         }
-        
-        
-       res.json({success: true, message: "User sign in successfully", user})
+
+
+        res.json({ success: true, message: "User sign in successfully", user })
 
     } catch (error) {
         console.log(error);
-        return res.json({success: false, message:"Error"})
+        return res.json({ success: false, message: "Error" })
     }
 }
 
@@ -115,4 +118,4 @@ const resetPassword = async (req, res) => {
 };
 
 
-export {signUp, signIn, resetPassword};
+export { signUp, signIn, resetPassword };
