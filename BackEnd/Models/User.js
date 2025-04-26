@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   language: { type: String, enum: ['English', 'Arabic', 'French']},
 
   // Pet list (will be populated later)
-  pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
+  pets: [{ type: String }],
 
   // Cart items (storing product details like productId, quantity, etc.)
   cart: [

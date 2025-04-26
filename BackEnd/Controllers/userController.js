@@ -74,15 +74,14 @@ const updateUserProfile = async (req, res) => {
 // @desc    Add a pet to the user's profile
 const addPetToUserProfile = async (req, res) => {
   try {
-    const userEmail = req.query.email || req.body.email;
-    const petId = req.body.petId; // The petId to link to the user
+    const { petName, userEmail } = req.body;
 
     const user = await User.findOne({ email: userEmail });
 
     if (!user) return res.status(404).json({ success: false, message: "User not found" });
 
     // Add the petId to the pets array in the user's profile
-    user.pets.push(petId);
+    user.pets.push(petName);
     await user.save();
 
     res.json({ success: true, message: "Pet added to user profile", data: user });
@@ -296,6 +295,25 @@ const clearCart = async (req, res) => {
   }
 };
 
+// Add this to userController.js
+const getUserPets = async (req, res) => {
+  try {
+    const { email } = req.query;
+    if (!email) {
+      return res.status(400).json({ success: false, message: "Email is required" });
+    }
+
+    const user = await User.findOne({ email }).select('pets');
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, pets: user.pets });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error fetching pets" });
+  }
+};
 
 
-export { createUser, getUserProfile, updateUserProfile, addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart };
+
+export { createUser, getUserProfile, updateUserProfile, addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart, getUserPets };
