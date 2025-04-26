@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const petList = document.getElementById('petList');
     const addPetForm = document.querySelector('#add-pet-popup form');
-    const ownerId = localStorage.getItem('userId');
+    const userEmail  = localStorage.getItem('email');
   
     // ✅ Load pets when the page loads
     async function loadPets() {
-      if (!ownerId || !petList) return;
-  
+      if (!userEmail  || !petList) return;
+     
       try {
-        const response = await fetch(`http://localhost:5000/api/pets/user/${ownerId}`);
+        const response = await fetch(`http://localhost:5000/api/pets/user/${userEmail}`);
         const result = await response.json();
   
         if (result.success && Array.isArray(result.data)) {
@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
         formData.append('age', age);
   
-        if (!ownerId) {
+        if (!userEmail) {
           alert("You're not logged in. Please log in to add a pet.");
           return;
         }
   
-        formData.append('owner', ownerId);
+        formData.append('userEmail', userEmail);
   
         try {
           const response = await fetch('http://localhost:5000/api/pets/add', {

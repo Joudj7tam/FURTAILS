@@ -5,8 +5,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   const subtotalElement = document.querySelector(".cart-total-details p:nth-of-type(2)");
   const totalElement = document.querySelector(".cart-total-details b:nth-of-type(2)");
   const deliveryFee = 2.00;
+  const petSelect = document.getElementById("pet-select");
 
   try {
+
+    // Load user's pets first
+    const petsRes = await fetch(`http://localhost:5000/api/users/pets?email=${email}`);
+    const petsData = await petsRes.json();
+    console.log(petsData.pets);
+ 
+    if (petsData.success && petsData.pets.length > 0) {
+      // Add user's pets to dropdown
+      petsData.pets.forEach(pet => {
+        const option = document.createElement("option");
+        option.value = pet;
+        option.textContent = pet;
+        petSelect.appendChild(option);
+      });
+    }
+
     const res = await fetch(`http://localhost:5000/api/users/cart-by-email?email=${email}`);
     const data = await res.json();
     console.log("Cart API Response:", data); 

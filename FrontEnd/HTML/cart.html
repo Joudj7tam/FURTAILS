@@ -72,49 +72,7 @@
             </div>
 
             <!-- Cart Items Container -->
-            <div class="cart-items-container" id="cart-items-container">
-                <!-- <div class="cart-items-item">
-                    <div class="cart-item-detail">
-                        <img src="../Media/kidney-Disease.png" alt="Item 1">
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>Kidney Disease</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>$9.99</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>2</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>$19.98</p>
-                    </div>
-                    <div class="cart-item-detail cross">
-                        X
-                    </div>
-                </div>
-
-                 Cart Items 
-                <div class="cart-items-item">
-                    <div class="cart-item-detail">
-                        <img src="../Media/3.jpg" alt="Item 1">
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>Fere Pets</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>$4.99</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>1</p>
-                    </div>
-                    <div class="cart-item-detail">
-                        <p>$4.99</p>
-                    </div>
-                    <div class="cart-item-detail cross">
-                        X
-                    </div>-->
-            </div>
+            <div class="cart-items-container" id="cart-items-container"></div>
             <!-- Cart Empty State -->
             <div class="cart-empty">
                 <img src="../Media/empty.png" alt="Empty cart" class="empty-cart-image">
@@ -153,19 +111,15 @@
                 <p class="title">Select Pet</p>
                 <select id="pet-select" class="pet-dropdown">
                     <option value="">-- Select a pet --</option>
-                    <option value="dog">joy</option>
-                    <option value="cat">sally</option>
-                    <option value="bird">neif</option>
-                    <option value="bird">semba</option>
                 </select>
-                <a href="../html/HomePage.html" class="add-pet-button">+ Add New Pet</a>
+                <a href="../HTML/HomePage.html#services" class="add-pet-button">+ Add New Pet</a>
             </div>
 
             <!-- Cart Totals -->
             <div class="cart-totals">
                 <div class="cart-total-details">
                     <p>Subtotal</p>
-                    <p>$69.97</p>
+                    <p>$0.00</p>
                 </div>
                 <div class="cart-total-details">
                     <p>Delivery Fee</p>
@@ -173,7 +127,7 @@
                 </div>
                 <div class="cart-total-details">
                     <b>Total</b>
-                    <b>$71.97</b>
+                    <b>$2.00</b>
                 </div>
             </div>
             <div class="cart-totals-actions">
@@ -189,58 +143,7 @@
                 <button onclick="window.location.href='HomePage.html'">Go To Home Page</button>
             </div>
         </div>
-
-        <!-- Add pet pop up -->
-        <div id="add-pet-popup" class="popup-overlay">
-            <div class="popup-content">
-                <a href="#" class="close-btn">&times;</a>
-                <h2>Add New Pet</h2>
-
-                <form enctype="multipart/form-data">
-                    <label for="petPhoto">Pet Photo</label>
-                    <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required>
-
-                    <label for="petName">Pet Name</label>
-                    <input type="text" id="petName" name="petName" required>
-
-                    <label for="petBirth">Birth Date</label>
-                    <input type="date" id="petBirth" name="petBirth" required>
-
-                    <label for="petBreed">Breed / Style</label>
-                    <input type="text" id="petBreed" name="petBreed" required>
-
-                    <!-- Disease List -->
-                    <fieldset class="radio-list">
-                        <legend>Disease</legend>
-                        <ul>
-                            <li>
-                                <label>
-                                    <input type="radio" name="disease" value="Obesity" required>
-                                    Obesity
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="disease" value="Kidney Disease">
-                                    Kidney Disease
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="disease" value="Diabetes">
-                                    Diabetes
-                                </label>
-                            </li>
-                        </ul>
-                    </fieldset>
-
-                    <button type="submit" class="button-header">Add Pet</button>
-                </form>
-            </div>
-        </div>
     </section>
-
-    <script src="../JS/cart.js"></script>
 
     <!-- start of footer-->
     <footer class="footer">
