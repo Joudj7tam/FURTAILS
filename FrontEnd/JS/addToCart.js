@@ -106,10 +106,10 @@ function updateCartUI(serviceCard, quantity) {
     if (!quantityDisplay) {
       quantityDisplay = document.createElement('span');
       quantityDisplay.className = 'quantity-display';
-      // Insert before the add-to-cart button if it exists
+      // For grooming cards, insert before the add-to-cart button
       const addButton = controlsContainer.querySelector('.add-to-cart');
       if (addButton) {
-        controlsContainer.insertBefore(quantityDisplay, addButton);
+        addButton.insertAdjacentElement('beforebegin', quantityDisplay);
       } else {
         controlsContainer.appendChild(quantityDisplay);
       }
@@ -128,8 +128,17 @@ function updateCartUI(serviceCard, quantity) {
       newMinusButton.textContent = '-';
       newMinusButton.addEventListener('click', () => handleRemoveFromCart(serviceId));
       
-      // Insert at the beginning of controls
-      controlsContainer.insertBefore(newMinusButton, controlsContainer.firstChild);
+      // For grooming cards, insert before the quantity display
+      const quantityDisplay = controlsContainer.querySelector('.quantity-display');
+      const addButton = controlsContainer.querySelector('.add-to-cart');
+      
+      if (quantityDisplay) {
+        quantityDisplay.insertAdjacentElement('beforebegin', newMinusButton);
+      } else if (addButton) {
+        addButton.insertAdjacentElement('beforebegin', newMinusButton);
+      } else {
+        controlsContainer.appendChild(newMinusButton);
+      }
     }
   } else if (minusButton) {
     minusButton.remove();

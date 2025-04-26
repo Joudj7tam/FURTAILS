@@ -724,7 +724,7 @@ a{
 
 /* Minus Button */
 .illness-card .remove-from-cart,
-.treat-card .quantity-controls {
+.treat-card .remove-from-cart {
   background-color: #a16f42;
   color: white;
   border: none;
@@ -742,7 +742,7 @@ a{
 
 /* Quantity Display */
 .illness-card .quantity-display,
-.treat-card .quantity-controls {
+.treat-card .quantity-display {
   font-size: 16px;
   font-weight: bold;
   color: #383838;

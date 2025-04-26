@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         itemDiv.classList.add("cart-items-item");
 
         // Image
-        const imgDiv = document.createElement("div");
+        /*const imgDiv = document.createElement("div");
         imgDiv.classList.add("cart-item-detail");
         const img = document.createElement("img");
         img.src = item.photo;
         img.alt = item.name;
-        imgDiv.appendChild(img);
+        imgDiv.appendChild(img);*/
 
         // Name
         const nameDiv = document.createElement("div");
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         removeDiv.textContent = "X";
 
         // Append all elements to itemDiv
-        itemDiv.append(imgDiv, nameDiv, priceDiv, qtyDiv, totalDiv, removeDiv);
+        itemDiv.append(/*imgDiv,*/ nameDiv, priceDiv, qtyDiv, totalDiv, removeDiv);
         cartContainer.appendChild(itemDiv);
       });
 
@@ -175,7 +175,7 @@ document.getElementById("checkoutBtn").addEventListener("click", async () => {
       });
 
       // Show the success modal only if everything succeeded
-      document.getElementById("completeOrderModal").style.display = "flex";
+      document.getElementById("completeOrderModal").style.display = "block";
     } else {
       alert("Failed to place the order. Try again.");
     }

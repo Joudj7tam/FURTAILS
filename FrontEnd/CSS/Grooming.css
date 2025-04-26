@@ -384,8 +384,7 @@ header {
     }
 
 /* Quantity Controls - Unified Style */
-.service-card .add-to-cart,
-.service-card .remove-from-cart {
+.service-card .add-to-cart {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -407,8 +406,29 @@ header {
   padding: 0;
 }
 
+/* Add this to grooming.css */
+.service-card .remove-from-cart {
+  position: absolute;
+  bottom: 5px;
+  right: 45px; /* Position to the left of the plus button */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: #DB8C87;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
 /* Position the minus button when both exist */
-.quantity-controls {
+.service-card .quantity-controls {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -418,12 +438,12 @@ header {
 }
 
 .quantity-controls .remove-from-cart {
-  position: static; /* Override absolute positioning */
+  position: static; /* Override absolute positioning*/
   right: auto;
 }
 
 /* Quantity display */
-.quantity-display {
+.service-card .quantity-display {
   font-size: 16px;
   font-weight: bold;
   color: #2b6e88;
@@ -432,12 +452,10 @@ header {
 }
 
 /* Hover states */
-.service-card .add-to-cart:hover,
 .service-card .remove-from-cart:hover {
   background-color: #c97a75;
   transform: scale(1.05);
 }
-
   header {
     display: flex;
     flex-direction:row;
