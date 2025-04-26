@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
           result.data.forEach(pet => {
             const petCard = document.createElement('a');
             petCard.className = 'pet-link';
-            petCard.href = '../../FrontEnd/HTML/petProfile.html';
+            petCard.href = `../../FrontEnd/HTML/petProfile.html?id=${pet._id}`;
   
             petCard.innerHTML = ` 
            <div class="pet-image-wrapper">
