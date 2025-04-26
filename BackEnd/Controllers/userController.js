@@ -34,7 +34,7 @@ const getUserProfile = async (req, res) => {
     const userEmail = req.query.email || req.body.email;
     const user = await User.findOne({ email: userEmail })
       .select("-password")  // Exclude the password field
-      .populate("pets");    // Populate the pets field
+      .populate("pets",'name');    // Populate the pets field
 
     if (!user) return res.status(404).json({ success: false, message: "User not found" });
 
@@ -74,8 +74,8 @@ const updateUserProfile = async (req, res) => {
 // @desc    Add a pet to the user's profile
 const addPetToUserProfile = async (req, res) => {
   try {
-    const { petName, userEmail } = req.body;
-
+  const { petName, userEmail } = req.body;
+    
     const user = await User.findOne({ email: userEmail });
 
     if (!user) return res.status(404).json({ success: false, message: "User not found" });
@@ -316,4 +316,4 @@ const getUserPets = async (req, res) => {
 
 
 
-export { createUser, getUserProfile, updateUserProfile, addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart, getUserPets };
+export { createUser, getUserProfile, updateUserProfile,addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart, getUserPets };

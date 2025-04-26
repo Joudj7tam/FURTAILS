@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUserProfile, updateUserProfile,createUser,addPetToUserProfile, addToCart, removeFromCart, getCartByEmail, clearCart, getUserPets } from '../Controllers/userController.js';
+import { getUserProfile, updateUserProfile,addPetToUserProfile,createUser, addToCart, removeFromCart, getCartByEmail, clearCart, getUserPets } from '../Controllers/userController.js';
 
 
 const router = express.Router();
