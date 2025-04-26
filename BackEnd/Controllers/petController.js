@@ -1,18 +1,25 @@
 import Pet from "../Models/Pet.js";
-import multer from 'multer';
-import path from 'path';
 
-// @desc    Add new pet (Test mode 
+// @desc    Add new pet
 const addPet = async (req, res, next) => {
-  const { name, type, breed, age, userEmail } = req.body; // Changed from owner to ownerEmail
+  const { name, type, breed, birthDate, sex, healthProblem, userEmail } = req.body;
   const petPhoto = req.file?.filename;
 
   // Validate required fields
-  if (!name || !type || !breed || !age || !userEmail || !petPhoto) {
-    return res.status(400).json({ 
+  if (!name || !type || !breed || !birthDate || !sex || !userEmail || !petPhoto) {
+    return res.status(400).json({
       success: false, 
-      message: "All fields (including photo) are required" 
+      message: "All fields (including photo) are required." 
     });
+  }
+
+  // Calculate age from birthDate
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+    age--;
   }
 
   try {
@@ -20,8 +27,11 @@ const addPet = async (req, res, next) => {
       name, 
       type, 
       breed, 
+      birthDate,
+      sex,
+      healthProblem,
       age, 
-      owner: userEmail, // Store email directly
+      owner: userEmail, 
       petPhoto 
     });
     
@@ -29,7 +39,7 @@ const addPet = async (req, res, next) => {
 
     req.petName = name;
     req.userEmail = userEmail;
-  
+
     next(); 
 
   } catch (error) {
@@ -42,20 +52,19 @@ const addPet = async (req, res, next) => {
   }
 };
 
-// @desc    Get all pets of a specific user (Test mode)
+// @desc    Get all pets of a specific user
 const getMyPets = async (req, res) => {
-  const ownerEmail = req.params.ownerEmail; // Changed from ownerId to ownerEmail
+  const ownerEmail = req.params.ownerEmail;
 
   try {
-    const pets = await Pet.find({ owner: ownerEmail }); // Find by email
+    const pets = await Pet.find({ owner: ownerEmail });
     res.json({ success: true, data: pets });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Failed to fetch pets' });
   }
 };
 
-
-// @desc    Update pet by ID (Test mode)
+// @desc    Update pet by ID
 const updatePet = async (req, res) => {
   const { owner } = req.body;
 
@@ -74,7 +83,7 @@ const updatePet = async (req, res) => {
   }
 };
 
-// @desc    Delete pet by ID (Test mode)
+// @desc    Delete pet by ID
 const deletePet = async (req, res) => {
   const { owner } = req.body;
 
@@ -89,4 +98,18 @@ const deletePet = async (req, res) => {
   }
 };
 
-export { addPet, getMyPets, updatePet, deletePet };
+// @desc    Get pet by ID
+const getPetById = async (req, res) => {
+  try {
+    const pet = await Pet.findById(req.params.id);
+    if (!pet) {
+      return res.status(404).json({ success: false, message: "Pet not found" });
+    }
+    res.json({ success: true, data: pet });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Failed to fetch pet" });
+  }
+};
+
+export { getMyPets, updatePet, deletePet, addPet, getPetById };
