@@ -72,12 +72,31 @@ document.addEventListener('DOMContentLoaded', () => {
           const result = await response.json();
   
           if (result.success) {
+            // Add pet name to user profile
+            const addToUserResponse = await fetch('http://localhost:5000/api/users/addPet', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                petName: formData.get('name'), // Get pet name from form
+                userEmail: userEmail
+              })
+            });
+        
+            const userResult = await addToUserResponse.json();
+            
+            if (!userResult.success) {
+              console.error("Failed to add pet to user profile:", userResult.message);
+            }
+        
             alert("Pet added successfully!");
-            addPetForm.reset(); // Clear form
-            loadPets(); // Refresh list without reloading the page
+            addPetForm.reset();
+            loadPets();
           } else {
-            alert("Failed to add pet: " + result.message);
+            alert("Failed to add pet to the user profile: " + result.message);
           }
+
         } catch (error) {
           console.error("Error:", error);
           alert("An error occurred while adding the pet.");

@@ -37,10 +37,11 @@ const addPet = async (req, res, next) => {
     
     await pet.save();
 
-    req.petName = name;
-    req.userEmail = userEmail;
-
-    next(); 
+    res.json({ 
+      success: true,
+      message: "Pet added successfully",
+      data: pet
+    });
 
   } catch (error) {
     console.error(error);
