@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
           console.error("Error:", error);
-          alert("An error occurred while adding the pet.");
+          
         }
       });
     }

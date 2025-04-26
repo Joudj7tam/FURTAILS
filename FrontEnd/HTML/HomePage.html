@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
   <link rel="stylesheet" href="/FURTAILS/FrontEnd/Css/HomePage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
- <nav class="NavBar">
+  <nav class="NavBar">
     <div class="nav-container">
       <input type="checkbox" id="menuToggle" class="menu-toggle">
-      
+
       <div class="logo-div">
         <a href="../HTML/Welcome2.html" class="logo">
           <img src="../Media/fur-logo-.png" alt="FurTail logo">
@@ -33,14 +35,9 @@
               <div class="dropdown-content">
                 <a href="../HTML/userProfile.html">My Profile</a>
                 <a href="../HTML/Welcome2.html" onclick="logout(); return false;">Logout</a>
-              </div> 
+              </div>
             </div>
-          </li>   
           </li>
-        </ul>
-      </div>
-
-
           <li class="nav-icons">
             <a href="../HTML/cart.html" class="icon-link" aria-label="Shopping Cart">
               <i class="fas fa-shopping-cart"></i>
@@ -49,16 +46,16 @@
           </li>
         </ul>
       </div>
-
-      <label for="menuToggle" class="menu-icon-container">
-        <span class="menu-icon">
-          <i class="fas fa-bars"></i>
-        </span>
-      </label>
     </div>
+
+    <label for="menuToggle" class="menu-icon-container">
+      <span class="menu-icon">
+        <i class="fas fa-bars"></i>
+      </span>
+    </label>
   </nav>
-  
-  
+
+
   <!-- Header Section -->
   <div class="header-container">
     <header>
@@ -113,7 +110,7 @@
       </div>
     </div>
   </section>
-  
+
 
   <!-- Pet Profile Section 
   <section id="pet-profile">
@@ -135,17 +132,17 @@
     </div>
   </section>-->
 
-<section id="pet-profile">
-  <h2>Discover Your Lovely Pets</h2>
-  <div class="pet-profile" id="petList">
-    <div class="add-pet-container">
-      <a href="#add-pet-popup" class="Btn">
-        <div class="sign">+</div>
-        <div class="text">Add Pet</div>
-      </a>
+  <section id="pet-profile">
+    <h2>Discover Your Lovely Pets</h2>
+    <div class="pet-profile" id="petList">
+      <div class="add-pet-container">
+        <a href="#add-pet-popup" class="Btn">
+          <div class="sign">+</div>
+          <div class="text">Add Pet</div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- Features Section -->
   <section id="features">
     <div class="features-header">
@@ -174,29 +171,29 @@
     <div class="popup-content">
       <a href="#" class="close-btn">&times;</a>
       <h2>Add New Pet</h2>
-  
+
       <form id="addPetForm" enctype="multipart/form-data" method="POST" action="http://localhost:5000/api/pets/add">
         <label for="petPhoto">Pet Photo</label>
         <input type="file" id="petPhoto" name="petPhoto" accept="image/*" required>
-      
+
         <label for="petName">Pet Name</label>
         <input type="text" id="petName" name="name" required>
-        <label for="petSex">Pet Gender</label> 
+        <label for="petSex">Pet Gender</label>
         <select id="petSex" name="sex" required>
           <option value="">Select Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
-      
+
         <label for="petType">Pet Type</label>
         <input type="text" id="petType" name="type" required> <!-- NEW FIELD -->
-      
+
         <label for="petBirth">Birth Date</label>
         <input type="date" id="petBirth" name="birthDate" required> <!-- we’ll use JS to convert to age -->
-      
+
         <label for="petBreed">Breed / Style</label>
         <input type="text" id="petBreed" name="breed" required>
-      
+
         <fieldset class="radio-list">
           <legend>Disease</legend>
           <ul>
@@ -205,10 +202,10 @@
             <li><label><input type="radio" name="disease" value="Diabetes"> Diabetes</label></li>
           </ul>
         </fieldset>
-      
+
         <button type="submit" class="button-header">Add Pet</button>
       </form>
-      
+
     </div>
   </div>
   <footer class="footer">
@@ -229,4 +226,5 @@
 
 
 </body>
+
 </html>
