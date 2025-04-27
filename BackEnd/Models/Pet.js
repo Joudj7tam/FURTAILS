@@ -7,7 +7,7 @@ const petSchema = new mongoose.Schema({
   age: { type: Number, required: true },
   birthDate: { type: Date, required: true },      
   sex: { type: String, enum: ['Male', 'Female'], required: true }, 
-  healthProblem: { type: String, default: 'None' },
+  healthProblem: { type: String, required: true },
   owner: { type: String, required: true },
   petPhoto: { type: String, required: true },
 }); 
