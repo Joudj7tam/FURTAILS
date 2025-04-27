@@ -27,22 +27,38 @@ const createUser = async (req, res) => {
   }
 };
 
-
-// @desc    Get user's profile by email with populated pets list
+// @desc    Get user's profile by email with populated pets list and pets count
 const getUserProfile = async (req, res) => {
   try {
-    const userEmail = req.query.email || req.body.email;
+    const userEmail = req.query.email; // Only from query for GET request
+
+    if (!userEmail) {
+      return res.status(400).json({ success: false, message: "Email is required" });
+    }
+
     const user = await User.findOne({ email: userEmail })
-      .select("-password")  // Exclude the password field
-      .populate("pets",'name');    // Populate the pets field
+      .select("-password")  // Exclude password field
+      .populate("pets", "name");  // Populate pets with just their name
 
-    if (!user) return res.status(404).json({ success: false, message: "User not found" });
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
 
-    res.json({ success: true, data: user });
+    // Calculate pets count
+    const petsCount = user.pets.length;
+
+    // Return user data along with pets count
+    res.json({
+      success: true,
+      data: user,
+      petsCount: petsCount,  // Include the pets count in the response
+    });
   } catch (error) {
+    console.error("Error fetching user profile:", error.message);
     res.status(500).json({ success: false, message: "Error getting profile" });
   }
 };
+
 
 // @desc    Update user's profile by email
 const updateUserProfile = async (req, res) => {
@@ -303,7 +319,9 @@ const getUserPets = async (req, res) => {
       return res.status(400).json({ success: false, message: "Email is required" });
     }
 
-    const user = await User.findOne({ email }).select('pets');
+    // Populate the pets field with full pet details
+    const user = await User.findOne({ email }).populate('pets');
+    
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });
     }
@@ -313,6 +331,7 @@ const getUserPets = async (req, res) => {
     res.status(500).json({ success: false, message: "Error fetching pets" });
   }
 };
+
 
 
 

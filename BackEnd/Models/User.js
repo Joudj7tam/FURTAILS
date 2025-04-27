@@ -22,10 +22,11 @@ const userSchema = new mongoose.Schema({
   DOB: { type: Date },
   language: { type: String, enum: ['English', 'Arabic', 'French']},
 
-  // Pet list (will be populated later)
-  pets: [{ type: String }],
+  // Pet list 
+  pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet' }],
+  petsCount: { type: Number, default: 0 },  // Field to track the number of pets
 
-  // Cart items (storing product details like productId, quantity, etc.)
+  // Cart items 
   cart: [
     {
       serviceId: { type: mongoose.Schema.Types.ObjectId, ref: 'Grooming' },

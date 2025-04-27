@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Add user's pets to dropdown
       petsData.pets.forEach(pet => {
         const option = document.createElement("option");
-        option.value = pet;
-        option.textContent = pet;
+        option.value = pet.name;
+        option.textContent = pet.name;
         petSelect.appendChild(option);
       });
     }

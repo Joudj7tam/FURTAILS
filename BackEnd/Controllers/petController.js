@@ -1,7 +1,7 @@
 import Pet from "../Models/Pet.js";
-
+import User from "../Models/User.js";  // Import the User model
 // @desc    Add new pet
-const addPet = async (req, res, next) => {
+const addPet = async (req, res) => {
   const { name, type, breed, birthDate, sex, healthProblem, userEmail } = req.body;
   const petPhoto = req.file?.filename;
 
@@ -35,12 +35,24 @@ const addPet = async (req, res, next) => {
       petPhoto 
     });
     
+    // Save the pet
     await pet.save();
+
+    // Now update the user's pets array by adding the new pet's ID
+    const user = await User.findOneAndUpdate(
+      { email: userEmail }, // Find the user by email
+      { 
+        $push: { pets: pet._id }, // Push the pet's ID into the user's pets array
+        $inc: { petsCount: 1 } // Increment the petsCount by 1
+      },
+      { new: true }
+    );
 
     res.json({ 
       success: true,
       message: "Pet added successfully",
-      data: pet
+      data: pet,
+      petsCount: user.petsCount // Return the updated petsCount
     });
 
   } catch (error) {

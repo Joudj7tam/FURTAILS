@@ -1,32 +1,3 @@
-/*document.getElementById("editButton").addEventListener("click", function () {
-    toggleEditMode();
-});
-
-function toggleEditMode() {
-    const editableFields = document.querySelectorAll(".editable-field");
-    const editButton = document.getElementById("editButton");
-
-    editableFields.forEach(field => {
-        if (field.tagName === "INPUT" || field.tagName === "SELECT") {
-            if (field.readOnly || field.disabled) {
-                field.readOnly = false;
-                field.disabled = false;
-                field.classList.add("editable");
-            } else {
-                field.readOnly = true;
-                field.disabled = true;
-                field.classList.remove("editable");
-            }
-        }
-    });
-
-    if (editButton.textContent.includes("Edit")) {
-        editButton.innerHTML = '<i class="fas fa-save"></i> Save';
-    } else {
-        editButton.innerHTML = '<i class="fas fa-edit"></i> Edit';
-        alert("Changes saved!"); // Optional: Notify user that changes are saved
-    }
-}*/
 
 // petProfile.js
 
