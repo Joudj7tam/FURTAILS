@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   
       if (result.success) {
         const allOrders = result.data;
-  
+        console.log("all pet orders:", allOrders);
         // Filter orders for the specific pet
         const petOrders = allOrders.filter(order => order.pet.toLowerCase() === petName.toLowerCase());
   
@@ -187,44 +187,28 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // ===== Helper to Show Order Info in Modal =====
 async function showOrderInfo(order) {
-    document.getElementById('receiptPetName').textContent = order.pet;
-    document.getElementById('receiptOrderNumber').textContent = order._id.substring(0, 6);
-    document.getElementById('receiptOrderDate').textContent = new Date(order.date).toISOString().split('T')[0];
-    document.getElementById('receiptOrderStatus').textContent = 'Completed';
-    document.getElementById('receiptTotalPrice').textContent = `$${order.totalPrice.toFixed(2)}`;
-  
-    const receiptServices = document.getElementById('receiptServices');
-    receiptServices.innerHTML = '';
-  
-    if (order.cartData && Array.isArray(order.cartData)) {
-      for (const serviceId of order.cartData) {
-        try {
-          // 👇 Fetch service info by ID
-          const serviceRes = await fetch(`http://localhost:5000/api/services/${serviceId}`);
-          const serviceResult = await serviceRes.json();
-  
-          if (serviceResult.success) {
-            const service = serviceResult.data;
-            const li = document.createElement('li');
-            li.innerHTML = `<span>${service.name}</span><span>$${service.price.toFixed(2)}</span>`;
-            receiptServices.appendChild(li);
-          } else {
-            // In case service not found
-            const li = document.createElement('li');
-            li.innerHTML = `<span>Unknown Service</span>`;
-            receiptServices.appendChild(li);
-          }
-        } catch (error) {
-          console.error('Error fetching service:', error);
+  document.getElementById('receiptPetName').textContent = order.pet;
+  document.getElementById('receiptOrderNumber').textContent = order._id.substring(0, 6);
+  document.getElementById('receiptOrderDate').textContent = new Date(order.date).toISOString().split('T')[0];
+  document.getElementById('receiptOrderStatus').textContent = 'Completed';
+  document.getElementById('receiptTotalPrice').textContent = `$${order.totalPrice.toFixed(2)}`;
+
+  const receiptServices = document.getElementById('receiptServices');
+  receiptServices.innerHTML = '';
+
+  if (order.cartData && Array.isArray(order.cartData)) {
+      order.cartData.forEach(item => {
           const li = document.createElement('li');
-          li.innerHTML = `<span>Service Fetch Error</span>`;
+          // Only show name and quantity (no price)
+          li.innerHTML = `
+              <span>${item.name} (x${item.quantity})</span>
+          `;
           receiptServices.appendChild(li);
-        }
-      }
-    } else {
+      });
+  } else {
       const li = document.createElement('li');
       li.innerHTML = `<span>No Services Listed</span>`;
       receiptServices.appendChild(li);
-    }
   }
+}
   

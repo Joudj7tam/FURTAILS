@@ -143,9 +143,9 @@ document.getElementById("checkoutBtn").addEventListener("click", async () => {
       return;
     }
 
-    const cartItems = cartData.items.map(item => item._id);
+    const cartItems = cartData.items.map(item => ({ id: item._id, name: item.name, quantity: item.quantity }));
     const totalPrice = cartData.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
+    console.log(cartItems);
     const orderRes = await fetch("http://localhost:5000/api/order/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
