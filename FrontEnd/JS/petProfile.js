@@ -11,21 +11,19 @@ document.addEventListener('DOMContentLoaded', async function () {
       
       if (referrer.includes('userProfile.html')) {
         backLink = '../HTML/userProfile.html';
-      } else if (referrer.includes('HomePage.html') || referrer === '') {
-        backLink = '../HTML/HomePage.html';
-      }
+      } 
       
       if (backButton) {
-        backButton.href = backLink;
-        backButton.addEventListener('click', function (e) {
-          console.log('Navigating back to:', this.href);
-        });
+        const backAnchor = backButton.closest('a');
+        if (backAnchor) {
+            backAnchor.href = backLink;
+          }
+        }
       }
-    }
-  
     setBackLink(); // ✅ Set the back link when page loads
   
-    // ===== 2. Fetch Pet Info =====
+
+ // ===== 2. Fetch Pet Info =====
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('id');  // Declare petId early
   
@@ -56,9 +54,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
         if (petBreed) petBreed.value = pet.breed;
         if (petHealthProblem) {
-          petHealthProblem.value = pet.healthProblem || "None";
+          petHealthProblem.value = pet.healthProblem ;
         }
-        
+        const currentPetName = pet.name; // ✅ Save pet name after fetching
+        console.log("Fetched pet name:", currentPetName); // Optional debugging
+        await fetchPetOrders(currentPetName);
       } else {
         alert('Pet not found!');
       }
@@ -116,4 +116,115 @@ document.addEventListener('DOMContentLoaded', async function () {
       });
     }
   });
+  // ===== Helper to Fetch Pet Orders =====
+  async function fetchPetOrders(petName) {
+    const ordersContainer = document.querySelector('.orders-container');
+  
+    if (!ordersContainer) return;
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/order/list');
+      const result = await response.json();
+  
+      if (result.success) {
+        const allOrders = result.data;
+  
+        // Filter orders for the specific pet
+        const petOrders = allOrders.filter(order => order.pet.toLowerCase() === petName.toLowerCase());
+  
+        // Find or create the order header (keep it)
+        let orderHeader = ordersContainer.querySelector('.order-header');
+        if (!orderHeader) {
+          orderHeader = document.createElement('div');
+          orderHeader.className = 'order-header';
+          orderHeader.innerHTML = `
+            <span>Number</span>
+            <span>Date</span>
+            <span>Status</span>
+            <span>Info</span>
+          `;
+          ordersContainer.appendChild(orderHeader);
+        }
+  
+        // Remove any previous order rows
+        const previousOrders = ordersContainer.querySelectorAll('.order');
+        previousOrders.forEach(order => order.remove());
+  
+        if (petOrders.length === 0) {
+          // No orders: leave the header and optionally add a "no orders" message
+          const noOrdersMsg = document.createElement('div');
+          noOrdersMsg.className = 'no-orders-message';
+          noOrdersMsg.style.padding = "10px";
+          noOrdersMsg.innerHTML = `<p>No service history yet.</p>`;
+          ordersContainer.appendChild(noOrdersMsg);
+          return;
+        }
+  
+        // If there are orders, add them
+        petOrders.forEach((order, index) => {
+          const orderDiv = document.createElement('div');
+          orderDiv.classList.add('order');
+  
+          orderDiv.innerHTML = `
+            <span class="order-number">${index + 1}</span>
+            <span class="order-date">${new Date(order.date).toISOString().split('T')[0]}</span>
+            <span class="order-status">Completed</span>
+            <div class="show-info-popup">
+              <a href="#orderInfoModal" onclick='showOrderInfo(${JSON.stringify(order)})'>
+                <span class="order-info"><img src="../Media/info.png" alt="info"></span>
+              </a>
+            </div>
+          `;
+  
+          ordersContainer.appendChild(orderDiv);
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching orders:', error);
+    }
+  }
+  
+
+// ===== Helper to Show Order Info in Modal =====
+async function showOrderInfo(order) {
+    document.getElementById('receiptPetName').textContent = order.pet;
+    document.getElementById('receiptOrderNumber').textContent = order._id.substring(0, 6);
+    document.getElementById('receiptOrderDate').textContent = new Date(order.date).toISOString().split('T')[0];
+    document.getElementById('receiptOrderStatus').textContent = 'Completed';
+    document.getElementById('receiptTotalPrice').textContent = `$${order.totalPrice.toFixed(2)}`;
+  
+    const receiptServices = document.getElementById('receiptServices');
+    receiptServices.innerHTML = '';
+  
+    if (order.cartData && Array.isArray(order.cartData)) {
+      for (const serviceId of order.cartData) {
+        try {
+          // 👇 Fetch service info by ID
+          const serviceRes = await fetch(`http://localhost:5000/api/services/${serviceId}`);
+          const serviceResult = await serviceRes.json();
+  
+          if (serviceResult.success) {
+            const service = serviceResult.data;
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${service.name}</span><span>$${service.price.toFixed(2)}</span>`;
+            receiptServices.appendChild(li);
+          } else {
+            // In case service not found
+            const li = document.createElement('li');
+            li.innerHTML = `<span>Unknown Service</span>`;
+            receiptServices.appendChild(li);
+          }
+        } catch (error) {
+          console.error('Error fetching service:', error);
+          const li = document.createElement('li');
+          li.innerHTML = `<span>Service Fetch Error</span>`;
+          receiptServices.appendChild(li);
+        }
+      }
+    } else {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>No Services Listed</span>`;
+      receiptServices.appendChild(li);
+    }
+  }
   

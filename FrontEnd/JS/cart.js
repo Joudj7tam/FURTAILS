@@ -176,10 +176,18 @@ document.getElementById("checkoutBtn").addEventListener("click", async () => {
 
       // Show the success modal only if everything succeeded
       document.getElementById("completeOrderModal").style.display = "block";
+
+      // ✅ ADD THIS: Reload after 2 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000); // 2 seconds delay
+
     } else {
       alert("Failed to place the order. Try again.");
     }
+
   } catch (err) {
-    
+    console.error("Checkout Error:", err);
+    alert("An error occurred during checkout. Please try again.");
   }
 });

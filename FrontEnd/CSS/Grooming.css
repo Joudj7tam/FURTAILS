@@ -382,7 +382,28 @@ header {
       flex-wrap: nowrap;
       padding: 20px 10px;
     }
-
+    .controls-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px; /* Space between minus, quantity, plus */
+      margin-top: 10px;
+    }
+    
+    .controls-wrapper button,
+    .controls-wrapper .quantity-display {
+      font-size: 16px;
+      padding: 5px;
+      background: none;
+      border: none;
+    }
+    
+    .controls-wrapper .quantity-display {
+      font-weight: bold;
+      min-width: 20px;
+      text-align: center;
+    }
+    
 /* Quantity Controls - Unified Style */
 .service-card .add-to-cart {
   position: absolute;
@@ -772,4 +793,28 @@ header {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.quantity-controls .add-to-cart,
+.quantity-controls .remove-from-cart {
+  position: static;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: #DB8C87;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }

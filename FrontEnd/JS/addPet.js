@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
   
         const formData = new FormData(addPetForm);
-  
+        const healthProblem = document.getElementById('disease').value;
+        formData.append('healthProblem', healthProblem);
+        
         const birthDateValue = document.getElementById('petBirth').value;
         const birthDate = new Date(birthDateValue);
         const today = new Date();

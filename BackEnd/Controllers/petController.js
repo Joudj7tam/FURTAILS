@@ -6,7 +6,7 @@ const addPet = async (req, res) => {
   const petPhoto = req.file?.filename;
 
   // Validate required fields
-  if (!name || !type || !breed || !birthDate || !sex || !userEmail || !petPhoto) {
+  if (!name || !type || !breed || !birthDate || !sex || !healthProblem ||  !userEmail || !petPhoto) {
     return res.status(400).json({
       success: false, 
       message: "All fields (including photo) are required." 

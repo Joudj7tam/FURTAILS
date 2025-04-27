@@ -33,87 +33,47 @@
                 <div><strong>Breed:</strong> <input type="text" id="petBreed" class="editable-field" value="Golden">
                 </div>
 
-                <div><strong>Health Problem:</strong>
-                    <select id="petHealthProblem" class="editable-field">
-                        <option value="None">None</option>
-                        <option value="Obesity">Obesity</option>
-                        <option value="Kidney Disease">Kidney Disease</option>
-                        <option value="Diabetes">Diabetes</option>
-                    </select>
+                <div>
+                  <strong>Health Problem:</strong>
+                  <input type="text" id="petHealthProblem" class="editable-field" value="None">
                 </div>
+                
             </div>
             <button id="editButton"><i class="fas fa-save"></i> Save Changes</button>
         </div>
         <div class="history-container">
-            <h2>Service History</h2>
-            <div class="orders-container">
-              <div class="order-header">
-                <span>Number</span>
-                <span>Date</span>
-                <span>Status</span>
-                <span>Info</span>
-              </div>
-          
-              <!-- Example Orders -->
-              <div class="order">
-                <span class="order-number">1</span>
-                <span class="order-date">2023-10-01</span>
-                <span class="order-status">Completed</span>
-                <div class="show-info-popup">
-                  <a href="#orderInfoModal">
-                    <span class="order-info"><img src="../Media/info.png" alt="info" ></span>
-                  </a>
-                </div>
-              </div>
-          
-              <div class="order">
-                <span class="order-number">2</span>
-                <span class="order-date">2023-09-28</span>
-                <span class="order-status">Pending</span>
-                <div class="show-info-popup">
-                  <a href="#orderInfoModal">
-                    <span class="order-info"><img src="../Media/info.png" alt="info" ></span>
-                  </a>
-                </div>
-              </div>
-              
-    <div class="order">
-        <span class="order-number">3</span>
-        <span class="order-date">2023-10-01</span>
-        <span class="order-status">Completed</span>
-        <div class="show-info-popup">
-          <a href="#orderInfoModal">
-            <span class="order-info"><img src="../Media/info.png" alt="info"></span>
-          </a>
-        </div>
-      </div>
+          <h2>Service History</h2>
+          <div class="orders-container">
+            <div class="order-header">
+              <span>Number</span>
+              <span>Date</span>
+              <span>Status</span>
+              <span>Info</span>
             </div>
+            <!-- Real orders will be inserted here dynamically by JS -->
           </div>
-          
-        <!-- Pop-up Modal -->
+        </div>
+        
         <!-- Pop-up Modal -->
         <div id="orderInfoModal" class="modal">
-            <div class="modal-content">
-                <a href="#" class="close">&times;</a> <!-- Close button -->
-                <h2>Order Receipt</h2>
-                <div class="receipt-info">
-                    <p><strong>Pet Name:</strong> <span id="receiptPetName">Fluffy</span></p>
-                    <p><strong>Order Number:</strong> <span id="receiptOrderNumber">1</span></p>
-                    <p><strong>Order Date:</strong> <span id="receiptOrderDate">2023-10-01</span></p>
-                    <p><strong>Status:</strong> <span id="receiptOrderStatus">Completed</span></p>
-                    <h3>Items:</h3>
-                    <ul id="receiptServices">
-                        <li><span>Feeding</span><span>$20.00</span></li>
-                        <li><span>Grooming</span><span>$30.00</span></li>
-                    </ul>
-                    <p class="total"><strong>Total Price:</strong> <span id="receiptTotalPrice">$ 50.00</span></p>
-                </div>
+          <div class="modal-content">
+            <a href="#" class="close">&times;</a> <!-- Close button -->
+            <h2>Order Receipt</h2>
+            <div class="receipt-info">
+              <p><strong>Pet Name:</strong> <span id="receiptPetName"></span></p>
+              <p><strong>Order Number:</strong> <span id="receiptOrderNumber"></span></p>
+              <p><strong>Order Date:</strong> <span id="receiptOrderDate"></span></p>
+              <p><strong>Status:</strong> <span id="receiptOrderStatus"></span></p>
+              <h3>Items:</h3>
+              <ul id="receiptServices">
+                <!-- Services will be dynamically added here -->
+              </ul>
+              <p class="total"><strong>Total Price:</strong> <span id="receiptTotalPrice"></span></p>
             </div>
+          </div>
         </div>
-
-    </div>
-
-    <script src="../JS/petProfile.js"></script>
-</body>
-
-</html>
+        
+        <script src="../JS/petProfile.js"></script>
+        </body>
+        </html>
+        
