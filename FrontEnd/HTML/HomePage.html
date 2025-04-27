@@ -193,15 +193,15 @@
 
         <label for="petBreed">Breed / Style</label>
         <input type="text" id="petBreed" name="breed" required>
+        <label for="disease">Disease</label>
+<select id="disease" name="disease" required>
+  <option value="">Select Disease</option>
+  <option value="None">None</option>
+  <option value="Obesity">Obesity</option>
+  <option value="Kidney Disease">Kidney Disease</option>
+  <option value="Diabetes">Diabetes</option>
+</select>
 
-        <fieldset class="radio-list">
-          <legend>Disease</legend>
-          <ul>
-            <li><label><input type="radio" name="disease" value="Obesity" required> Obesity</label></li>
-            <li><label><input type="radio" name="disease" value="Kidney Disease"> Kidney Disease</label></li>
-            <li><label><input type="radio" name="disease" value="Diabetes"> Diabetes</label></li>
-          </ul>
-        </fieldset>
 
         <button type="submit" class="button-header">Add Pet</button>
       </form>

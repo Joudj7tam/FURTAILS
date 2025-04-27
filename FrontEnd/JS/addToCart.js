@@ -91,7 +91,7 @@ async function handleRemoveFromCart(serviceId) {
 
 function updateCartUI(serviceCard, quantity) {
   const serviceId = serviceCard.dataset.serviceId;
-  
+
   // Find the controls container - works for both grooming and food pages
   let controlsContainer = serviceCard.querySelector('.quantity-controls');
   
